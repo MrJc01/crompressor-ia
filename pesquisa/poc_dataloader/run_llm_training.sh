@@ -6,16 +6,15 @@ echo "  [CROM-LLM-TRAINER] Módulo de Integração SRE Iniciado"
 echo "==========================================================="
 
 WORKSPACE="/home/j/Área de trabalho/crompressor-ia"
-CROM_DIR="/home/j/Área de trabalho/crompressor"
-CROM_BIN="$CROM_DIR/crompressor-novo"
+POC_DIR="$WORKSPACE/pesquisa/poc_dataloader"
+CROM_BIN="$WORKSPACE/crompressor_bin"
 
 if [ ! -f "$CROM_BIN" ]; then
-    echo "Erro Crítico: Binário crompressor base não compilado em $CROM_BIN"
-    echo "Execute 'make build' em $CROM_DIR primeiro."
+    echo "Erro Crítico: Binário crompressor base não está no root. Copie o binário para '$CROM_BIN'."
     exit 1
 fi
 
-cd "$WORKSPACE"
+cd "$POC_DIR"
 
 echo -e "\n[1/4] Gerando Mock Dataset (Massa Entrópica 150k linhas)..."
 pip install tqdm > /dev/null 2>&1 || true

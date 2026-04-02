@@ -1,0 +1,18 @@
+# Data Lakes SRE FUSE (Ignorar massas orbitais geradas localmente)
+mnt_crom/
+mnt_squash/
+magic_merge/
+lower/
+upper/
+work/
+dataset_raw/
+dataset.sqsh
+sovereign.crom
+*.cromdb
+
+# Python / Pytorch
+__pycache__/
+*.pyc
+mock_dataset.jsonl
+*.pt
+*.pth
