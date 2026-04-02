@@ -28,6 +28,7 @@ Diferente de um modelo como LLaMA ou GPT que processa arquivos de texto massivos
   - `poc_telemetria_sre_ai` - Dashboards I/O BPFTrace para certificar estabilidade em NVMe/Memória Restrita.
 
 - `crompressor_bin`: O binário compilado que fornece o FUSE mount (SoC CROM).
+- `/visualizador-sre`: Frontend Edge Dashboard Premium em arquitetura HTML/CSS/JS nativa, voltado a telemetria, PageFaults Mmap e taxa de bloqueio (Anti-Entropy Pruning) logados do backend em FUSE e AI Bypass. Sem frameworks pesados garantindo zero bloqueio da Edge CPU.
 
 ## 🥼 Primeiros Passos (Laboratório)
 

@@ -3,7 +3,17 @@ import json
 import os
 import torch
 import random
+import math
+from collections import Counter
 from torch.utils.data import IterableDataset
+
+def calc_shannon_entropy(text):
+    if not text:
+        return 0.0
+    b = text.encode('utf-8')
+    freqs = Counter(b)
+    size = len(b)
+    return -sum((c / size) * math.log2(c / size) for c in freqs.values())
 
 class CromIterableDataset(IterableDataset):
     """
@@ -41,6 +51,12 @@ class CromIterableDataset(IterableDataset):
                     
                     # Extraindo IDs Semântico-Fractais via string hash (simulando CROM O(1) FastCDC)
                     words = raw_text.split()
+                    
+                    entropy = calc_shannon_entropy(raw_text)
+                    if entropy > 7.5:
+                        # Simulando o salto da string caótica - Anti-Entropy Pruning
+                        print(f"\\r[SRE-DLT] Block Pruned! HNSW Evidenciou Entropia Caótica (H={entropy:.2f} > 7.5)", end="", flush=True)
+                        continue
                     
                     # Em vez de SentencePiece/BPE LLM clássico, o CodebookID já sai pronto
                     codebook_id_sequence = [hash(w) % self.crom_internal_vocab_size for w in words]

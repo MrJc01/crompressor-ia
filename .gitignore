@@ -16,3 +16,21 @@ __pycache__/
 mock_dataset.jsonl
 *.pt
 *.pth
+
+# Ambientes Virtuais e Dependências (Fase SRE GGUF)
+.venv/
+venv/
+env/
+*.gguf
+*.safetensors
+
+# Bancos O(1) e Dumps de KV Cache
+*.sqlite
+*.sqlite3
+
+# Binários Compilados
+crompressor_bin
+
+# OS & IDE
+.DS_Store
+.vscode/
