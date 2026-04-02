@@ -15,7 +15,18 @@ Diferente de um modelo como LLaMA ou GPT que processa arquivos de texto massivos
 ## 📂 Estrutura Físico-Estocástica
 
 - `/docs`: Teses e fundamentação matemática da integração CROM-LLM.
-- `/pesquisa`: Projetos de Prova de Conceito (POCs) isolados e pipelines PyTorch experimentais.
+- `/pesquisa`: Projetos de Prova de Conceito (POCs) isolados e pipelines PyTorch experimentais. Abaixo as 9 frentes SRE CROM-IA em atividade:
+  - `poc_dataloader` - A raiz de Dataloading FUSE com BPE bypass em Python.
+  - `poc_llama_cpp_fuse` - Modelos GGUF e inferência via C++ com CROM.
+  - `poc_kv_cache_to_disk` - Inodes FUSE sustentando O(1) de Contexto Infinito em Inferência local LLaMA.
+  - `poc_rag_crom` - O Motor Cosenoidal HNSW de CROM atuando puramente como Vectordb.
+  - `poc_tokenless_transformers` - Alimentação de FastCDC hashes diretamente como tokens.
+  - `poc_p2p_weight_delta` - P2P/Kademlia Edge Swarm para treinar pesos neurais através de transferências micro (.crom).
+  - `poc_anti_entropy_pruning` - Escudos de limite de Shannon contra datasets de baixa qualidade (WebCrawling).
+  - `poc_safetensors_mmap` - Kernels de C conversando com inodes de SQLite FUSE on-the-fly sem CPU Copy.
+  - `poc_genetic_dataset_streaming` - Reconstrução do dicíonário Codebook HNSW em Runtime via Backpropagation Loss.
+  - `poc_telemetria_sre_ai` - Dashboards I/O BPFTrace para certificar estabilidade em NVMe/Memória Restrita.
+
 - `crompressor_bin`: O binário compilado que fornece o FUSE mount (SoC CROM).
 
 ## 🥼 Primeiros Passos (Laboratório)
