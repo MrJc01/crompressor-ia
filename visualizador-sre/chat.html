@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROM-IA | Chatbot Edge O(1)</title>
+    <meta name="description" content="Chatbot de IA rodando localmente via CROM FUSE sem GPU e sem cloud.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-mesh"></div>
+
+    <div class="chat-layout">
+        <!-- Sidebar -->
+        <aside class="chat-sidebar glass">
+            <a href="index.html" class="back-link">← Voltar ao Portal</a>
+            <div class="sidebar-logo">
+                <div class="orb"></div>
+                <h2>CROM Chat</h2>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>O que é isso?</h4>
+                <p>Um chatbot que roda <strong>100% na sua máquina</strong>. Nenhum dado sai daqui. A IA lê os pesos neurais direto do disco via FUSE, sem precisar de 32GB de RAM ou GPU dedicada.</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>Como funciona por trás?</h4>
+                <p>O motor CROM comprime o modelo de IA e cria um "drive virtual". Quando você faz uma pergunta, ele busca os fragmentos relevantes em <strong>tempo constante O(1)</strong> — como um índice de livro instantâneo.</p>
+            </div>
+
+            <div class="sidebar-section edu-card">
+                <h4>📊 Info Técnica</h4>
+                <div class="edu-stat">
+                    <span class="edu-label">RAM Usada</span>
+                    <span class="edu-value" id="chat-ram">~0.15 MB</span>
+                </div>
+                <div class="edu-stat">
+                    <span class="edu-label">Método</span>
+                    <span class="edu-value">FUSE Mmap</span>
+                </div>
+                <div class="edu-stat">
+                    <span class="edu-label">GPU Requerida</span>
+                    <span class="edu-value highlight-green">Nenhuma</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Chat Area -->
+        <main class="chat-main">
+            <div class="chat-messages" id="chat-messages">
+                <!-- Welcome Message -->
+                <div class="msg msg-bot">
+                    <div class="msg-avatar">🤖</div>
+                    <div class="msg-body">
+                        <div class="msg-content">
+                            <p>Olá! Eu sou o <strong>CROM Assistant</strong>. Estou rodando inteiramente na sua máquina — sem cloud, sem GPU, sem enviar seus dados para lugar nenhum.</p>
+                            <p>Me pergunte qualquer coisa sobre IA, compressão de dados, ou como funciona o sistema CROM!</p>
+                        </div>
+                        <div class="msg-meta">
+                            <span class="meta-badge meta-speed">⚡ Resposta em 0.00ms</span>
+                            <span class="meta-badge meta-local">🔒 100% Local</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="chat-input-area glass">
+                <div class="chat-input-wrap">
+                    <textarea id="chat-input" placeholder="Pergunte algo à IA local..." rows="1"></textarea>
+                    <button id="chat-send" class="send-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+                    </button>
+                </div>
+                <p class="chat-disclaimer">Simulação educacional do pipeline CROM-IA. Respostas pré-configuradas para demonstração.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>

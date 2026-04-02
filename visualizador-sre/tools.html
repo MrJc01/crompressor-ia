@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROM-IA | Sanitizador de Dados (Shannon)</title>
+    <meta name="description" content="Ferramenta de análise de entropia Shannon para filtrar dados de baixa qualidade em tempo real.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-mesh"></div>
+
+    <div class="tools-layout">
+        <header class="tools-header">
+            <a href="index.html" class="back-link">← Voltar ao Portal</a>
+            <div class="tools-title">
+                <div class="orb"></div>
+                <h1>Sanitizador de Dados <span>Entropia de Shannon</span></h1>
+            </div>
+        </header>
+
+        <!-- How it works banner -->
+        <section class="tools-explainer glass">
+            <div class="tools-explainer-grid">
+                <div>
+                    <h3>🧪 O que esta ferramenta faz?</h3>
+                    <p>Ela mede a <strong>"desordem"</strong> de cada trecho de texto usando a fórmula de <em>Claude Shannon</em> (1948). Textos humanos coerentes têm entropia baixa (~4.0). Lixo digital, hashes e dados corrompidos têm entropia alta (>7.5). O CROM usa exatamente essa lógica para filtrar datasets antes de treinar a IA.</p>
+                </div>
+                <div class="entropy-scale">
+                    <h4>Escala de Entropia (H)</h4>
+                    <div class="scale-bar">
+                        <div class="scale-segment scale-clean" style="width:50%">
+                            <span>0 — 5.0</span>
+                            <small>Texto Limpo ✅</small>
+                        </div>
+                        <div class="scale-segment scale-warn" style="width:25%">
+                            <span>5.0 — 7.5</span>
+                            <small>Misto ⚠️</small>
+                        </div>
+                        <div class="scale-segment scale-danger" style="width:25%">
+                            <span>7.5 — 8.0</span>
+                            <small>Caótico 🚫</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Tool Area -->
+        <main class="tools-main">
+            <!-- Input side -->
+            <section class="tool-panel glass">
+                <h3>📝 Cole ou digite seu texto</h3>
+                <textarea id="tools-input" placeholder="Cole aqui qualquer texto, código, hash, ou mistura de tudo. A ferramenta vai analisar cada parágrafo separadamente...
+
+Exemplo: tente colar um texto em português junto com algo como 'a1b2c3d4e5f6789abc' e veja a diferença de entropia!" rows="14"></textarea>
+                <button class="analyze-btn" id="analyze-btn">🔬 Analisar via CROM</button>
+            </section>
+
+            <!-- Results side -->
+            <section class="tool-panel glass tool-results">
+                <h3>📊 Resultado da Análise</h3>
+                <div id="results-container" class="results-empty">
+                    <div class="results-placeholder">
+                        <span>🧬</span>
+                        <p>Os resultados aparecerão aqui após a análise.</p>
+                        <p><small>Cada parágrafo será avaliado individualmente.</small></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Summary Stats -->
+        <section class="tools-stats glass" id="stats-section" style="display:none;">
+            <div class="stat-item">
+                <div class="stat-value" id="stat-total">0</div>
+                <div class="stat-label">Blocos Analisados</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value highlight-green" id="stat-clean">0</div>
+                <div class="stat-label">Aprovados ✅</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value highlight-warm" id="stat-warn">0</div>
+                <div class="stat-label">Suspeitos ⚠️</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value highlight-red" id="stat-pruned">0</div>
+                <div class="stat-label">Podados 🚫</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="stat-avg">0.00</div>
+                <div class="stat-label">Entropia Média (H)</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="tools.js"></script>
+</body>
+</html>

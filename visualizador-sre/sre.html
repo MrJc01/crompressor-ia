@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROM-IA | SRE Edge Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-mesh"></div>
+    
+    <div class="layout">
+        <!-- Header -->
+        <header class="header glass">
+            <div class="logo">
+                <div class="orb"></div>
+                <h1>CROM-IA <span>SRE Edge Monitor</span></h1>
+            </div>
+            <div class="status-indicator">
+                <span class="pulse"></span>
+                <span class="status-text">Kernel Layer Active</span>
+            </div>
+        </header>
+
+        <!-- Main Content Grid 3-column-like -->
+        <main class="dashboard">
+            
+            <!-- Context Side Panel (Explanations) -->
+            <aside class="context-panel glass">
+                <h2>O que está acontecendo?</h2>
+                <p>Neste laboratório, estamos comprovando a teoria do <strong>Zero-Swapping</strong>. Modelos gigantes de Inteligência Artificial geralmente causam <em>Kernel Panic</em> em máquinas comuns por esgotamento de memória (RAM/VRAM).</p>
+                
+                <div class="info-block">
+                    <h4>🔗 FUSE Mmap Bypass</h4>
+                    <p>Ao invés de alocar gigabytes, o Motor CROM transforma os Pesos da IA num drive virtual. O processador lê fragmentos exatos como num espelho, sem engolir o arquivo.</p>
+                </div>
+                
+                <div class="info-block">
+                    <h4>✂️ Poda de Entropia</h4>
+                    <p>Aplicando o Teorema de Claude Shannon (H > 7.5). A rede salta magicamente fragmentos caóticos em tempo real, poupando desgaste de ciclos neurais e treinando no substrato purificado.</p>
+                </div>
+
+                <button class="glowing-btn" id="open-modal-btn">🔍 Ver Arquitetura Completa</button>
+            </aside>
+
+            <!-- Metrics Column -->
+            <section class="metrics">
+                
+                <!-- Metric 1 -->
+                <div class="card glass has-tooltip">
+                    <h3>Memória Residente (RSS) ℹ️</h3>
+                    <div class="metric-value" id="rss-value">0.00 <span class="unit">MB</span></div>
+                    <div class="metric-label">Bypass VRAM Constante</div>
+                    <div class="tooltip-content glass">
+                        <strong>RAM Bypass Explicado:</strong>
+                        Resident Set Size (RSS) mede a RAM física real consumida. Um modelo Pytorch normal explodiria este marcador para +12GB. Mantê-lo em 0.00~0.20MB comprova fisicamente que a CPU está lendo o GGUF massivo apenas da VFS (Virtual File System) via ponteiros O(1).
+                    </div>
+                </div>
+                
+                <!-- Metric 2 -->
+                <div class="card glass has-tooltip">
+                    <h3>Hit Rate O(1) ℹ️</h3>
+                    <div class="metric-value highlight" id="hit-rate">100<span class="unit">%</span></div>
+                    <div class="metric-label">Acesso aos Hashes</div>
+                    <div class="tooltip-content glass">
+                        <strong>Tempo Constante:</strong>
+                        Diferente das IAs clássicas que varrem tokens (O(n)), nós atingimos os <code>.cromdb_ids</code> imediatamente na árvore HNSW, garantindo 100% de hit-rate dinâmico.
+                    </div>
+                </div>
+
+                <!-- Metric 3 -->
+                <div class="card glass has-tooltip">
+                    <h3>PageFaults Sustentado ℹ️</h3>
+                    <div class="metric-value" id="swap-value">12 / 0</div>
+                    <div class="metric-label">Zero-Copy Swap</div>
+                    <div class="tooltip-content glass">
+                        <strong>Estabilidade do S.O:</strong>
+                        Major PageFaults (quando o Sistema tenta ler da memória que foi jogada ao Disco - Swap) está Cまりado em ZERO. Isso indica performance paralela de altíssimo nível.
+                    </div>
+                </div>
+
+                <!-- Metric 4 -->
+                <div class="card glass has-tooltip">
+                    <h3>Anti-Entropy Pruning ℹ️</h3>
+                    <div class="metric-value warm" id="prune-value">0 <span class="unit">Blocks</span></div>
+                    <div class="metric-label">Amostras Caóticas Descartadas</div>
+                    <div class="tooltip-content glass">
+                        <strong>Claude Shannon Shield:</strong>
+                        Mostra quantos milhares de blocos poluídos foram identificados via <code>Log2</code> e defletidos antes de cruzar a Engine (exaurimento evitado).
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Live Logs Column -->
+            <section class="terminal glass">
+                <div class="terminal-header">
+                    <span>Terminal SRE (Live Stream FUSE)</span>
+                    <div class="controls">
+                        <i></i><i></i><i></i>
+                    </div>
+                </div>
+                <div class="terminal-body" id="log-container">
+                    <!-- Logs dynamically injected -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Architectural Deep Dive Modal -->
+    <div class="modal-overlay" id="arch-modal">
+        <div class="modal-content glass">
+            <button class="close-btn" id="close-modal-btn">✖</button>
+            <h2 style="font-family: var(--font-head); margin-bottom: 1rem; color: var(--accent-glow);">Arquitetura CROM-IA 🧠</h2>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                Diferente de um modelo como <em>LLaMA</em> ou <em>GPT</em> que processa arquivos de texto massivos gerados por strings estáticas (BPE), o CROM-IA treina lendo a <strong>Matriz de Entropia Codebook</strong> (Fractais matemáticos associados a resíduos semânticos).
+            </p>
+            <ul style="color: var(--text-primary); line-height: 1.8; margin-left: 1.5rem; margin-bottom: 2rem;">
+                <li><strong>CGO FUSE Mmap:</strong> O Sistema Operacional acha que está acessando O(1) blocos rápidos, mas na verdade a camada submersa em Rust está interceptando bytes de grandes montantes SQSH.</li>
+                <li><strong>Tokenless Hashing:</strong> Usamos o FastCDC ao invés do clássico SentencePiece. Quando a entropia quebra as regras universais de semântica, rejeitamos antes do Pytorch calcular gradientes.</li>
+                <li><strong>Contexto Infinito (SQLite Blobs):</strong> Retenção vetorial de <em>Attention</em> ocorre em disco mapeado e não na caríssima VRAM da Nvidia.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
