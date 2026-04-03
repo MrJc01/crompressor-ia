@@ -33,10 +33,10 @@ TAXA_CONFIG = {
         "descricao": "Fragmentos de 2-3 palavras",
     },
     "1x5": {
-        "nome": "Semi-Frases",
-        "n_gramas": [3, 4, 5],
+        "nome": "Trigramas Expandidos",
+        "n_gramas": [2, 3],
         "max_entradas": 15000,
-        "descricao": "Fragmentos de 3-5 palavras",
+        "descricao": "Dicionário expandido de 2-3 palavras",
     },
     "1x10": {
         "nome": "Frases Completas",

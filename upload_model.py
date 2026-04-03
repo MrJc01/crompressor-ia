@@ -19,9 +19,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Artefatos para subir
 ARQUIVOS = [
-    # Modelos GGUF
+    # Modelos GGUF (O 1x5 foi removido temporariamente pois precisa ser retreinado com o novo codebook)
     ("models/crom-dna-1x3-fixo.gguf", "crom-dna-1x3-fixo.gguf"),
-    ("models/crom-dna-1x5-fixo.gguf", "crom-dna-1x5-fixo.gguf"),
     # Codebooks (essenciais para decodificação)
     ("codebooks/codebook_1x3_fixo.json", "codebooks/codebook_1x3_fixo.json"),
     ("codebooks/codebook_1x5_fixo.json", "codebooks/codebook_1x5_fixo.json"),
