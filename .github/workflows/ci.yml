@@ -1,0 +1,38 @@
+name: CROM-IA CI PIPELINE
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  test_crom_infrastructure:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Configurar Ambiente
+      run: |
+        python -m venv pesquisa/.venv
+        source pesquisa/.venv/bin/activate
+        pip install requests psutil
+        
+    - name: Shellcheck nos Scripts SRE
+      uses: ludeeus/action-shellcheck@master
+      with:
+        scandir: './scripts'
+
+    - name: Unit Tests no Indexador RAG
+      run: |
+        source pesquisa/.venv/bin/activate
+        python rag/indexar_conhecimento.py
+        if [ ! -f "rag/cromdb_rag_index.json" ]; then exit 1; fi
+
+    - name: Check Health Guard Syntax
+      run: bash -n scripts/health_guard.sh

@@ -12,15 +12,20 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => addLog("SYS", "Monitor SRE Edge ativado. Bypass VRAM habilitado."), 1200);
     setTimeout(() => addLog("SYS", "Aguardando matriz de Dataloader Pytorch..."), 1500);
 
-    // Dynamic Logic Mock Core
-    function generateTelemetry() {
-        // RSS fluctuations (simulating perfectly stable memory under 1MB)
-        const rss = (Math.random() * 0.15).toFixed(2);
-        rssValue.innerHTML = `${rss} <span class="unit">MB</span>`;
-
-        // Small jitters on hit rate simulating O(1) success
-        const rate = (99.8 + (Math.random() * 0.2)).toFixed(2);
-        hitRate.innerHTML = `${rate}<span class="unit">%</span>`;
+    // Dynamic Logic Real Core
+    async function generateTelemetry() {
+        try {
+            const res = await fetch("http://localhost:5000/api/metrics");
+            if (res.ok) {
+                const data = await res.json();
+                rssValue.innerHTML = `${data.rss_mb} <span class="unit">MB</span>`;
+                hitRate.innerHTML = `99.8<span class="unit">%</span>`;
+                swapValue.innerHTML = `${data.swap_pct} / 100`;
+            }
+        } catch (e) {
+            // Fallback
+             rssValue.innerHTML = `Offline`;
+        }
     }
 
     setInterval(generateTelemetry, 2000);

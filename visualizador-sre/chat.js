@@ -292,7 +292,46 @@ document.addEventListener("DOMContentLoaded", () => {
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
 
+    function createStreamingMessage() {
+        const wrapper = document.createElement("div");
+        wrapper.className = "msg msg-bot";
+        const avatar = document.createElement("div");
+        avatar.className = "msg-avatar";
+        avatar.textContent = "🤖";
+        const body = document.createElement("div");
+        body.className = "msg-body";
+        const bubble = document.createElement("div");
+        bubble.className = "msg-content";
+        const p = document.createElement("div"); // Using div to hold HTML
+        bubble.appendChild(p);
+        body.appendChild(bubble);
+        wrapper.appendChild(avatar);
+        wrapper.appendChild(body);
+        messagesContainer.appendChild(wrapper);
+        return {
+            wrapper: wrapper,
+            append: (fullText) => {
+                p.innerHTML = formatMarkdown(fullText);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            },
+            finish: (meta) => {
+                const metaDiv = document.createElement("div");
+                metaDiv.className = "msg-meta";
+                if (meta && meta.real) {
+                    metaDiv.innerHTML = `
+                        <span class="meta-badge meta-speed">⚡ ${meta.latency_ms}ms real</span>
+                        <span class="meta-badge meta-local">🧬 Modo Sub-Simbólico</span>
+                        <span class="meta-badge meta-fuse">💾 RSS: ${meta.rss_mb}MB</span>
+                    `;
+                }
+                body.appendChild(metaDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        };
+    }
+
     function showTyping() {
+
         const typing = document.createElement("div");
         typing.className = "msg msg-bot typing-indicator-wrap";
         typing.id = "typing-indicator";
@@ -323,23 +362,44 @@ document.addEventListener("DOMContentLoaded", () => {
         showTyping();
 
         if (backendOnline) {
-            // === REAL LLM INFERENCE ===
+            // === REAL LLM INFERENCE STREAMING ===
             try {
-                const res = await fetch(`${API_URL}/api/chat`, {
+                const res = await fetch(`${API_URL}/api/chat/stream`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ message: text }),
                 });
                 removeTyping();
                 if (res.ok) {
-                    const data = await res.json();
-                    chatRam.textContent = `${data.rss_mb} MB`;
-                    addMessage(data.response, false, {
-                        real: true,
-                        latency_ms: data.latency_ms,
-                        tokens: data.tokens,
-                        rss_mb: data.rss_mb,
-                    });
+                    const reader = res.body.getReader();
+                    const decoder = new TextDecoder();
+                    const streamMsg = createStreamingMessage();
+                    let fullText = "";
+
+                    while (true) {
+                        const { done, value } = await reader.read();
+                        if (done) break;
+                        const chunk = decoder.decode(value, { stream: true });
+                        const lines = chunk.split("\n");
+                        for (const line of lines) {
+                            if (line.startsWith("data: ")) {
+                                try {
+                                    const data = JSON.parse(line.slice(6));
+                                    if (!data.done) {
+                                        fullText += data.token;
+                                        streamMsg.append(fullText);
+                                    } else {
+                                        chatRam.textContent = `${data.rss_mb} MB`;
+                                        streamMsg.finish({
+                                            real: true,
+                                            latency_ms: data.latency_ms,
+                                            rss_mb: data.rss_mb
+                                        });
+                                    }
+                                } catch (err) {}
+                            }
+                        }
+                    }
                 } else {
                     const err = await res.json();
                     addMessage(`[Erro do servidor]: ${err.error}`, false);

@@ -7,8 +7,13 @@ upper/
 work/
 dataset_raw/
 dataset.sqsh
-sovereign.crom
+*.crom
 *.cromdb
+logs/
+rag/*.json
+models/
+*.gguf
+*.gguf.crom
 
 # Python / Pytorch
 __pycache__/

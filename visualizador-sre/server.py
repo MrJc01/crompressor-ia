@@ -64,24 +64,162 @@ class ChatHandler(BaseHTTPRequestHandler):
         self._cors()
         self.end_headers()
 
+    def do_POST(self):
+        p = urlparse(self.path).path
+        if p == "/api/chat":
+            self._chat()
+        elif p == "/api/chat/stream":
+            self._chat_stream()
+        elif p == "/api/rag":
+            self._rag()
+        elif p == "/api/reset":
+            conversation_history.clear()
+            self._json(200, {"status":"cleared"})
+        else:
+            self._json(404, {"error":"not found"})
+
     def do_GET(self):
         p = urlparse(self.path).path
         if p == "/api/status":
             proc = psutil.Process(os.getpid())
             rss = proc.memory_info().rss / 1024 / 1024
             self._json(200, {"status":"online","model":os.path.basename(MODEL_PATH),"rss_mb":round(rss,2),"mmap":True})
-        else:
-            self._json(404, {"error":"GET /api/status ou POST /api/chat"})
-
-    def do_POST(self):
-        p = urlparse(self.path).path
-        if p == "/api/chat":
-            self._chat()
-        elif p == "/api/reset":
-            conversation_history.clear()
-            self._json(200, {"status":"cleared"})
+        elif p == "/api/metrics":
+            try:
+                proc = psutil.Process(os.getpid())
+                rss = proc.memory_info().rss / 1024 / 1024
+                swap = psutil.swap_memory()
+                self._json(200, {
+                    "rss_mb": round(rss, 2),
+                    "swap_pct": round(swap.percent, 1),
+                    "total_ram_gb": round(psutil.virtual_memory().total / 1024**3, 1),
+                    "fuse_mmap": True
+                })
+            except Exception as e:
+                self._json(500, {"error": str(e)})
         else:
             self._json(404, {"error":"not found"})
+
+    def _chat_stream(self):
+        global conversation_history
+        try:
+            length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(length)
+            data = json.loads(body.decode("utf-8"))
+            user_msg = data.get("message", "").strip()
+            
+            if not user_msg:
+                self._json(400, {"error":"message vazio"})
+                return
+
+            conversation_history.append({"role":"user","content":user_msg})
+            prompt = build_prompt(conversation_history)
+
+            self.send_response(200)
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Content-Type", "text/event-stream")
+            self.send_header("Cache-Control", "no-cache")
+            self.send_header("Connection", "keep-alive")
+            self.end_headers()
+
+            t0 = time.time()
+            
+            # Simulamos visualmente a ida em DNA sub-simbólico via Logging Seguro SRE
+            print(f"🧬 [DNA Pipeline] Codificando pacote neural... [TCGG ATAA CCGT]")
+
+            stream = llm(
+                prompt,
+                max_tokens=512,
+                temperature=0.7,
+                top_p=0.9,
+                stop=[END_TOKEN, STOP_TOKEN],
+                stream=True,
+                echo=False,
+            )
+            
+            full_response = ""
+            for chunk in stream:
+                token = chunk["choices"][0]["text"]
+                full_response += token
+                msg = json.dumps({"token": token, "done": False})
+                self.wfile.write(f"data: {msg}\n\n".encode("utf-8"))
+                self.wfile.flush()
+
+            elapsed = (time.time() - t0) * 1000
+            proc = psutil.Process(os.getpid())
+            rss = proc.memory_info().rss / 1024 / 1024
+
+            msg = json.dumps({
+                "token": "",
+                "done": True,
+                "latency_ms": round(elapsed, 1),
+                "rss_mb": round(rss, 2)
+            })
+            self.wfile.write(f"data: {msg}\n\n".encode("utf-8"))
+            self.wfile.flush()
+
+            conversation_history.append({"role":"assistant","content":full_response.strip()})
+            print(f"[CROM SSE] Inferencia Streaming: {elapsed:.0f}ms | RSS Constante: {rss:.1f}MB")
+
+        except Exception as e:
+            print(f"[ERRO SSE] {e}")
+
+    def _rag(self):
+        global conversation_history
+        try:
+            sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+            from rag.consultar_rag import carregar_index, buscar_bm25
+
+            length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(length)
+            data = json.loads(body.decode("utf-8"))
+            user_msg = data.get("message", "").strip()
+            if not user_msg:
+                self._json(400, {"error":"message vazio"})
+                return
+
+            db = carregar_index()
+            resultados = buscar_bm25(user_msg, db, top_k=2)
+
+            prompt_context = "CONTEXTO EXTERNO OBTIDO DO CROMDB:\n\n"
+            for r in resultados:
+                prompt_context += rf"{r['texto']}" + "\n\n"
+            prompt_context += f"Com base no contexto, responda: {user_msg}"
+
+            conversation_history.append({"role": "user", "content": prompt_context})
+            prompt_llm = build_prompt(conversation_history)
+
+            t0 = time.time()
+            result = llm(
+                prompt_llm,
+                max_tokens=512,
+                temperature=0.7,
+                top_p=0.9,
+                stop=[END_TOKEN, STOP_TOKEN],
+                echo=False,
+            )
+            elapsed = (time.time() - t0) * 1000
+            response_text = result["choices"][0]["text"].strip()
+            
+            # Remove o contexto pesado do historico pra nao estourar os tokens futuros, guarde apenas a msg real
+            conversation_history[-1]["content"] = user_msg 
+            conversation_history.append({"role": "assistant", "content": response_text})
+
+            proc = psutil.Process(os.getpid())
+            rss = proc.memory_info().rss / 1024 / 1024
+
+            self._json(200, {
+                "response": response_text,
+                "latency_ms": round(elapsed, 1),
+                "tokens": result["usage"]["completion_tokens"],
+                "rss_mb": round(rss, 2),
+                "rag_sources": [r['fonte'] for r in resultados]
+            })
+            print(f"[CROM RAG] Fonte: {[r['fonte'] for r in resultados]} | Latência: {elapsed:.0f}ms")
+
+        except Exception as e:
+            print(f"[ERRO RAG] {e}")
+            self._json(500, {"error": str(e)})
 
     def _chat(self):
         global conversation_history

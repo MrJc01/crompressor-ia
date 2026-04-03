@@ -1,40 +1,79 @@
-# 🧬 CROM-IA (Crompressor Large Language Model)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid/dna.svg" width="80" alt="CROM-IA DNA Logo"/>
+  <h1>CROM-IA 🧠🧬</h1>
+  <p><strong>A Primeira IA Sub-Simbólica Termodinâmica para Edge Devices (Zero-Swapping)</strong></p>
 
-> _"Evoluindo a Inteligência Artificial através da Compressão Termodinâmica"_
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Build Status](https://github.com/MrJc01/crompressor-ia/workflows/CROM-IA%20CI%20PIPELINE/badge.svg)](https://github.com/MrJc01/crompressor-ia/actions)
+  [![Hardware](https://img.shields.io/badge/Hardware-Intel_i5__IvyBridge-blue.svg)](https://en.wikipedia.org/wiki/Ivy_Bridge_(microarchitecture))
+  
+  <br>
+  <a href="https://huggingface.co/CromIA/CROM-IA-V1-DNA"><img src="https://img.shields.io/badge/🤗_HuggingFace-CROM--IA--V1--DNA-ff9d00.svg?style=for-the-badge" alt="HuggingFace Models"></a>
+</div>
 
-O **Crompressor-IA** é um repositório satélite criado a partir da Engenharia Estrutural do Motor V23 do Crompressor. O objetivo é unificar **Small World Graphs (HNSW)**, **Delta Compression** e **FUSE Cascading** com os gargalos massivos de I/O em Treinamentos de Modelos de Linguagem (PyTorch, JAX).
+<br>
 
-## 🚀 Como isso funciona?
+O **CROM-IA** é uma arquitetura revolucionária que permite a execução de Redes Neurais (LLMs Reais como LLaMA e Qwen) em computadores sem Placa de Vídeo dedicada e com menos de **3GB de memória RAM disponível**.
 
-Diferente de um modelo como LLaMA ou GPT que processa arquivos de texto massivos (.jsonl) extraídos cegamente, o CROM-IA treina lendo a _Matriz de Entropia_ (o `.cromdb` codebook associado aos resíduos).
+Diferente de quantizações tradicionais, nossa tecnologia substitui a estrutura alocativa da RAM por uma leitura **fractal O(1)** mapeada diretamente do SSD utilizando compressão termodinâmica (FastCDC) e montadores baseados em **FUSE (Filesystem in Userspace)**.
 
-1. **Acesso O(1) de Dataloaders:** O `CromIterableDataset` do PyTorch não carrega memória desnecessária. Ele usa CGO FUSE para realizar um bypass quântico de informações já processadas.
-2. **Codebook Tokens (Embeddings Nativos):** Os IDs LSH do Crompressor servem como fundação vetorial para a IA. Prever o "próximo token" aqui significa prever _Próximos Fractais de Realidade Abstrata_.
-3. **KV Cache em Disco:** A retenção de memórias sequenciais ocorre no espaço FUSE, garantindo um "Context Window" virtualmente infinito durante a inferência.
+---
 
-## 📂 Estrutura Físico-Estocástica
+## 🚀 Engenharia Core
 
-- `/docs`: Teses e fundamentação matemática da integração CROM-LLM.
-- `/pesquisa`: Projetos de Prova de Conceito (POCs) isolados e pipelines PyTorch experimentais. Abaixo as 9 frentes SRE CROM-IA em atividade:
-  - `poc_dataloader` - A raiz de Dataloading FUSE com BPE bypass em Python.
-  - `poc_llama_cpp_fuse` - Modelos GGUF e inferência via C++ com CROM.
-  - `poc_kv_cache_to_disk` - Inodes FUSE sustentando O(1) de Contexto Infinito em Inferência local LLaMA.
-  - `poc_rag_crom` - O Motor Cosenoidal HNSW de CROM atuando puramente como Vectordb.
-  - `poc_tokenless_transformers` - Alimentação de FastCDC hashes diretamente como tokens.
-  - `poc_p2p_weight_delta` - P2P/Kademlia Edge Swarm para treinar pesos neurais através de transferências micro (.crom).
-  - `poc_anti_entropy_pruning` - Escudos de limite de Shannon contra datasets de baixa qualidade (WebCrawling).
-  - `poc_safetensors_mmap` - Kernels de C conversando com inodes de SQLite FUSE on-the-fly sem CPU Copy.
-  - `poc_genetic_dataset_streaming` - Reconstrução do dicíonário Codebook HNSW em Runtime via Backpropagation Loss.
-  - `poc_telemetria_sre_ai` - Dashboards I/O BPFTrace para certificar estabilidade em NVMe/Memória Restrita.
+As inteligências artificiais dominantes engolem dicionários literais na porta de entrada (os chamados BPE Tokenizers). Nós não. 
+O CROM infunde nativamente um modelo Qwen / LLaMA a se comunicar de forma **Sub-Simbólica em Base-4 (Radix-4 / DNA)** (`A, T, C, G`), comprimindo e evitando problemas de Swap e paginação pesada do kernel Linux.
 
-- `crompressor_bin`: O binário compilado que fornece o FUSE mount (SoC CROM).
-- `/visualizador-sre`: Frontend Edge Dashboard Premium em arquitetura HTML/CSS/JS nativa, voltado a telemetria, PageFaults Mmap e taxa de bloqueio (Anti-Entropy Pruning) logados do backend em FUSE e AI Bypass. Sem frameworks pesados garantindo zero bloqueio da Edge CPU.
+### 🛡️ Pipeline Visível:
+1. Poda Mágica anti-ruído baseada na **Entropia de Claude Shannon**.
+2. **LoRA Fine-Tuning** convertendo a base do LLaMA em motor DNA.
+3. Empacotamento CROM-Compression (Dicionário Codebook HNSW Dinâmico).
+4. Motor Nativo C/C++ interceptando os arrays virtuais FUSE O(1).
+5. RAG (Busca Documental) 100% matemática (BM25 Native TF-IDF).
 
-## 🥼 Primeiros Passos (Laboratório)
+---
 
-Para testar o POC inicial Pytorch + FUSE:
+## 📦 Quick Start
+
+> Você não precisará rodar nada como `root`. Tudo opera perfeitamente seguro em _userspace_.
+
+### 1️⃣ Baixar e Preparar
+Inicie o ambiente, valide permissões e ative o motor sub-simbólico:
 ```bash
-cd pesquisa/poc_dataloader/
-chmod +x run_llm_training.sh
-./run_llm_training.sh
+git clone https://github.com/MrJc01/crompressor-ia.git
+cd crompressor-ia
+chmod +x scripts/*.sh
+
+# Cria o container base virtual (.venv) e pacotes C++ nativos
+source pesquisa/.venv/bin/activate
 ```
+
+### 2️⃣ Iniciar o Ecossistema CROM Completo
+Use um **único comando** SRE Hardened que orquestra tudo na sua máquina:
+```bash
+./iniciar_chat_real.sh
+```
+
+A mágica toda acontecerá:
+1. O _Pre-Flight Check_ SRE protege o seu Kernel contra Swap-thrashing (> 90%).
+2. O **Watchdog Health Guard** inicia silenciosamente protegendo seus processos.
+3. O Backend injeta o RAG CROM e as LLMs neurais.
+4. O WebServer **Streaming** levantará na máquina local.
+   👉 Acesso em: [http://localhost:8080](http://localhost:8080)
+
+---
+
+## 🧮 Laboratório de DNA (Demo do Backend)
+
+Em painéis antigos, tudo é `String -> Tensor`. 
+No site oficial local do CROM-IA que levantará no link da porta 8080, clique em acessar o **"Laboratório Radix-4"**. Você verá como os pesos fluem dentro do FUSE sob demanda e como os pacotes de comunicação transpilam os pacotes pesados em Base-4 super processáveis.
+
+## 🤝 Colaboradores Open Source
+
+Ansioso para ver o que pesquisadores podem alcançar com essa arquitetura C++ pura + Rust.
+Por favor, leia nosso [CONTRIBUTING.md](./CONTRIBUTING.md) antes de criar issues de vazamento de RAM!
+
+<br>
+<div align="center">
+  <i>Construído com obsessão pela DeepMind Architectures / Google GenAI Hackathons.</i>
+</div>

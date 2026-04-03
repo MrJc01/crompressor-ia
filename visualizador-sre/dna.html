@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROM-IA | Laboratório DNA Radix-4</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .dna-lab { max-width: 900px; margin: 0 auto; padding: 2rem; display: flex; flex-direction: column; gap: 2rem; }
+        textarea { width: 100%; min-height: 150px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; color: #fff; font-size: 1.1rem; resize: vertical; margin-bottom: 0.5rem; }
+        textarea:focus { outline: none; border-color: var(--accent-glow); }
+        .dna-box { font-family: 'Fira Code', monospace; color: #00ff88; letter-spacing: 2px; line-height: 1.5; word-wrap: break-word; }
+        .arrow { text-align: center; color: var(--accent-glow); font-size: 2rem; animation: pulse 2s infinite; }
+    </style>
+</head>
+<body>
+    <div class="background-mesh"></div>
+    <header class="header glass">
+        <div class="logo">
+            <div class="orb"></div>
+            <h1>CROM-IA <span>Laboratório Sub-Simbólico DNA</span></h1>
+        </div>
+        <div class="links">
+            <a href="index.html" style="color: white; padding-right:1rem;">Voltar ao Portal</a>
+        </div>
+    </header>
+
+    <main class="dna-lab">
+        <div class="card glass">
+            <h3>Camada de Entrada (UTF-8 Humano)</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">O que enviamos pro Processador:</p>
+            <textarea id="human-input" placeholder="Digite caracteres em linguagem humana para observar a modulação Radix-4 instantânea..."></textarea>
+        </div>
+
+        <div class="arrow">⬇ ⚙️ ⬇</div>
+
+        <div class="card glass">
+            <h3>Camada Inferencial (DNA Base-4)</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Como a Rede Neural enxerga e processa sem carregar a RAM:</p>
+            <textarea id="dna-output" class="dna-box" readonly placeholder="T A C G..."></textarea>
+        </div>
+    </main>
+
+    <script>
+        const input = document.getElementById('human-input');
+        const output = document.getElementById('dna-output');
+        const radixMap = {'00': 'A', '01': 'T', '10': 'C', '11': 'G'};
+        
+        input.addEventListener('input', () => {
+            const text = input.value;
+            const encoder = new TextEncoder();
+            const bytes = encoder.encode(text);
+            let dna = '';
+            
+            for(let b of bytes) {
+                let bin = b.toString(2).padStart(8, '0');
+                for(let i = 0; i < 8; i += 2) {
+                    dna += radixMap[bin.substring(i, i+2)];
+                }
+            }
+            output.value = dna;
+        });
+    </script>
+</body>
+</html>
