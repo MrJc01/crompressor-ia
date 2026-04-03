@@ -34,3 +34,4 @@ crompressor_bin
 # OS & IDE
 .DS_Store
 .vscode/
+pesquisa/poc_llama_cpp_fuse/llama.cpp/
