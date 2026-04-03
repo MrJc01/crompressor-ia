@@ -15,6 +15,12 @@ models/
 *.gguf
 *.gguf.crom
 
+# Relatórios e Artefatos Temporários
+benchmark_results_*.txt
+
+# Datasets Dinâmicos Gigantes
+datasets/*.jsonl
+
 # Python / Pytorch
 __pycache__/
 *.pyc
