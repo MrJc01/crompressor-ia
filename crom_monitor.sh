@@ -72,8 +72,17 @@ function menu() {
     
     case $OPCAO in
         1)
-            echo -e "\nIniciando Chat DNA..."
-            bash "$SCRIPTS_DIR/chat_dna_v2.sh" 1x3 fixo
+            echo -e "\n${CYAN}Modelos Genômicos (GGUF) disponíveis:${NC}"
+            for f in "$MODELS_DIR"/*.gguf; do [ -e "$f" ] && basename "$f"; done
+            echo ""
+            echo -ne "Digite a TAXA do modelo (ex: 1x3, 1x5)  > "
+            read TAXA_ESCOLHIDA
+            echo -ne "Digite o MODO do modelo (fixo, dinamico) > "
+            read MODO_ESCOLHIDO
+            echo -e "\nIniciando Chat DNA ($TAXA_ESCOLHIDA $MODO_ESCOLHIDO)..."
+            python3 "$BASE_DIR/scripts/chat_dna_v2.py" "${TAXA_ESCOLHIDA:-1x5}" "${MODO_ESCOLHIDO:-fixo}"
+            echo "Aperte Enter para voltar..."
+            read
             ;;
         2)
             echo -e "\nIniciando Montagem FUSE..."

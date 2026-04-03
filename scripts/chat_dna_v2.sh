@@ -1,39 +1,19 @@
 #!/bin/bash
 # ╔══════════════════════════════════════════════════════════════╗
-# ║  🧬 CROM-IA V2: Pipeline DNA Comprimido → Texto Humano     ║
-# ║                                                              ║
-# ║  Arquitetura:                                                ║
-# ║  llama-cli (10 t/s) → DNA tokens → dna_decoder.py (O(1))   ║
-# ║  → texto humano expandido (~30 palavras/s com taxa 1:3)     ║
+# ║  🧬 CROM-IA V2 SRE: Chat DNA Batch Blindado (Final)          ║
+# ║  Usa `script` para capturar output TTY direto do llama-cli   ║
+# ║  Extrai resposta DNA com sed, decodifica com Python O(1)     ║
 # ╚══════════════════════════════════════════════════════════════╝
 
-set -euo pipefail
-
 BASE_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-
-# Binário otimizado para Ivy Bridge (AVX) — dá ~10 t/s
 LLAMA_CLI="/home/j/Área de trabalho/crompressor/pesquisa/ia_llm/102-native_llm_humble_pc/bin/llama-cli"
 
-# Modelo DNA V2 treinado com codebook 1:3
-MODELO="$BASE_DIR/models/crom-dna-1x3-fixo.gguf"
-
-# Codebook e decoder
-CODEBOOK="$BASE_DIR/codebooks/codebook_1x3_fixo.json"
-DECODER="$BASE_DIR/scripts/dna_decoder.py"
-
-# Parâmetros
-TAXA="${1:-1x3}"
+TAXA="${1:-1x5}"
 MODO="${2:-fixo}"
-THREADS=2
-CTX=1024
-MAX_TOKENS=128
-TEMP=0.2
 
-# Override se passaram parâmetros
-if [ "$TAXA" != "1x3" ] || [ "$MODO" != "fixo" ]; then
-    MODELO="$BASE_DIR/models/crom-dna-${TAXA}-${MODO}.gguf"
-    CODEBOOK="$BASE_DIR/codebooks/codebook_${TAXA}_${MODO}.json"
-fi
+MODELO="$BASE_DIR/models/crom-dna-${TAXA}-${MODO}.gguf"
+CODEBOOK="$BASE_DIR/codebooks/codebook_${TAXA}_${MODO}.json"
+DECODER="$BASE_DIR/scripts/dna_decoder.py"
 
 # Verificações
 for FILE in "$LLAMA_CLI" "$MODELO" "$CODEBOOK" "$DECODER"; do
@@ -43,35 +23,58 @@ for FILE in "$LLAMA_CLI" "$MODELO" "$CODEBOOK" "$DECODER"; do
     fi
 done
 
+echo ""
 echo "╔══════════════════════════════════════════════════════════╗"
-echo "║  🧬 CROM-IA V2: DNA Compression Pipeline (Taxa ${TAXA})   ║"
+echo "║  🧬 CROM-IA Chat DNA (Taxa ${TAXA}) — Motor AVX Puro     ║"
 echo "╠══════════════════════════════════════════════════════════╣"
-echo "║  Motor     : llama-cli (Ivy Bridge AVX, nativo C++)     ║"
-echo "║  Modelo    : $(basename "$MODELO")"
-echo "║  Codebook  : $(basename "$CODEBOOK")"
-echo "║  Decoder   : dna_decoder.py (hashmap O(1))              ║"
-echo "║  Threads   : $THREADS | Ctx: $CTX | Temp: $TEMP         ║"
-echo "╠══════════════════════════════════════════════════════════╣"
-echo "║  PIPELINE: LLM → DNA tokens → Decoder → Texto Humano   ║"
-echo "║  Meta: Cada token DNA = 3 palavras → 30 palavras/s      ║"
+echo "║  Modelo   : crom-dna-${TAXA}-${MODO}.gguf"
+echo "║  Codebook : codebook_${TAXA}_${MODO}.json"
 echo "╚══════════════════════════════════════════════════════════╝"
+echo ""
+echo "[!] Digite 'sair' para encerrar."
 echo ""
 
 SYSTEM_PROMPT="Você é um compressor CROM DNA (taxa ${TAXA/x/:}). Comprima a resposta usando códigos do codebook semântico DNA. Use prefixo @@ para palavras sem código. Responda APENAS com códigos DNA."
 
-echo "[!] Digite sua pergunta e aguarde a decodificação supersônica."
-echo "================================================================"
+TMP_TTY="/tmp/crom_tty_$$.txt"
 
-"$LLAMA_CLI" \
-    -m "$MODELO" \
-    --threads $THREADS \
-    -c $CTX \
-    -n $MAX_TOKENS \
-    --temp $TEMP \
-    --repeat-penalty 1.18 \
-    -cnv \
-    -sys "$SYSTEM_PROMPT" \
-    2>/dev/null | python3 "$DECODER" --codebook "$CODEBOOK"
+while true; do
+    echo -ne "\033[0;36m👤 Você:\033[0m "
+    read -r PERGUNTA
 
-echo ""
-echo "[SISTEMA] Motor C++ Desativado."
+    if [ -z "$PERGUNTA" ]; then continue; fi
+    if [ "$PERGUNTA" = "sair" ] || [ "$PERGUNTA" = "exit" ]; then
+        echo "Saindo..."
+        rm -f "$TMP_TTY"
+        break
+    fi
+
+    # Roda llama-cli em single-turn, capturando TTY via `script`
+    # -> `script -qec` cria um pseudo-terminal e grava TUDO num arquivo.
+    # -> `--single-turn` faz a Llama responder UMA vez e sair sozinha.
+    # -> `--no-display-prompt` não re-ecoa a pergunta na saída.
+    # -> `--no-perf` esconde métricas de velocidade.
+    # -> `2>/dev/null` mata os logs de backend do stderr.
+    script -qec "\"$LLAMA_CLI\" \
+        -m \"$MODELO\" \
+        -c 1024 -t 4 -n 128 \
+        --temp 0.2 --repeat-penalty 1.18 \
+        --single-turn --no-display-prompt --no-perf \
+        -sys \"$SYSTEM_PROMPT\" \
+        -p \"$PERGUNTA\" \
+        2>/dev/null" "$TMP_TTY" > /dev/null 2>&1
+
+    # Extrai SOMENTE a linha de resposta DNA (após "> prompt", pula linha vazia, pega resposta)
+    DNA_RAW=$(sed -n '/^> /{n;n;p;q}' "$TMP_TTY" | tr -d '\r')
+
+    if [ -z "$DNA_RAW" ]; then
+        echo -e "\033[0;31m[!] Sem resposta do motor.\033[0m"
+        continue
+    fi
+
+    # Decodifica DNA → Texto Humano via Python O(1) decoder
+    TEXTO_HUMANO=$(echo "$DNA_RAW" | python3 "$DECODER" --codebook "$CODEBOOK" --quiet 2>/dev/null)
+
+    echo -e "\033[0;32m🤖 CROM:\033[0m $TEXTO_HUMANO"
+    echo ""
+done
