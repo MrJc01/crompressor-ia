@@ -156,86 +156,30 @@ def generate(message, history, temperature, repeat_penalty, max_tokens):
 GITHUB = "https://github.com/MrJc01/crompressor-ia"
 HF_MODEL = "https://huggingface.co/CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic"
 
-CSS = """
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap');
-* { box-sizing: border-box; }
-body, .gradio-container {
-    background: #0a0f1a !important;
-    font-family: 'Inter', sans-serif !important;
-    color: #f1f5f9 !important;
-    overflow-y: auto !important;
-    height: auto !important;
-    min-height: 100vh !important;
-}
-.gradio-container { max-width: 900px !important; margin: 0 auto !important; overflow: visible !important; }
-.hdr {
-    background: linear-gradient(135deg, #0f172a, #1e3a5f, #0f172a);
-    border: 1px solid #334155; border-radius: 14px;
-    padding: 1.5rem 1rem; text-align: center; margin-bottom: 0.5rem;
-    box-shadow: 0 0 20px rgba(56,189,248,0.12);
-}
-.hdr h1 {
-    font-size: 1.8rem; font-weight: 700; margin: 0 0 0.3rem 0;
-    background: linear-gradient(135deg, #38bdf8, #22d3ee);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hdr p { color: #94a3b8; font-size: 0.85rem; margin: 0.2rem 0; }
-.hdr .links { margin-top: 0.7rem; display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; }
-.hdr .links a, .hdr .links span {
-    padding: 0.25rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 500;
-    text-decoration: none; transition: transform 0.15s;
-}
-.hdr .links a:hover { transform: translateY(-1px); }
-.bg { background: rgba(52,211,153,0.12); color: #34d399; border: 1px solid rgba(52,211,153,0.25); }
-.bb { background: rgba(56,189,248,0.12); color: #38bdf8; border: 1px solid rgba(56,189,248,0.25); }
-.bc { background: rgba(34,211,238,0.12); color: #22d3ee; border: 1px solid rgba(34,211,238,0.25); }
-.stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.4rem; margin-bottom: 0.5rem; }
-.sc {
-    background: #1e293b; border: 1px solid #334155; border-radius: 8px;
-    padding: 0.5rem; text-align: center;
-}
-.sv { font-size: 1rem; font-weight: 700; color: #38bdf8; font-family: 'JetBrains Mono', monospace; }
-.sl { font-size: 0.65rem; color: #94a3b8; margin-top: 0.1rem; }
-"""
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
-HEADER = f"""
-<div class="hdr">
-  <h1>🧬 Rosa — CROM-IA V3.5b</h1>
-  <p>Motor de IA Organica Comprimida | 1.5B Params | Qwen2.5 Fine-Tuned 117k PT-BR</p>
-  <p style="font-size:0.75rem;color:#64748b">CPU-Only | Compressao Termodinamica DNA O(1)</p>
-  <div class="links">
-    <a href="{GITHUB}" target="_blank" class="bg">⚙️ GitHub</a>
-    <a href="{HF_MODEL}" target="_blank" class="bb">🤗 Modelo</a>
-    <span class="bc">🧵 {cores} Threads</span>
-    <span class="bc">🔬 {len(dna_entries)} DNA Ptrs</span>
-  </div>
-</div>
-"""
+def read_static(filename):
+    with open(os.path.join(base_dir, filename), "r", encoding="utf-8") as f:
+        return f.read()
 
-STATS = f"""
-<div class="stats">
-  <div class="sc"><div class="sv">1.5B</div><div class="sl">Parametros</div></div>
-  <div class="sc"><div class="sv">117k</div><div class="sl">Amostras</div></div>
-  <div class="sc"><div class="sv">Q4_K_M</div><div class="sl">Quantizacao</div></div>
-  <div class="sc"><div class="sv">{len(dna_entries)}</div><div class="sl">Codebook DNA</div></div>
-</div>
-"""
+CSS = read_static("style.css")
+HEADER = read_static("header.html").format(
+    GITHUB=GITHUB,
+    HF_MODEL=HF_MODEL,
+    cores=cores,
+    dna_count=len(dna_entries)
+)
+STATS = read_static("stats.html").format(dna_count=len(dna_entries))
+FOOTER = read_static("footer.html")
 
-FOOTER = """
-<div style="text-align:center;padding:0.4rem;color:#475569;font-size:0.7rem">
-  CROM-IA © 2026<br>
-  <a href="https://github.com/MrJc01/crompressor-ia" target="_blank" style="color:#38bdf8">GitHub</a> ·
-  <a href="https://huggingface.co/CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic" target="_blank" style="color:#38bdf8">HuggingFace</a>
-</div>
-"""
-
-with gr.Blocks(title="Rosa - CROM-IA V3.5b") as demo:
+with gr.Blocks(title="Rosa - CROM-IA V3.5b", fill_height=False) as demo:
     gr.HTML(HEADER)
     gr.HTML(STATS)
 
     gr.ChatInterface(
         generate,
         chatbot=gr.Chatbot(height=500),
+        fill_height=False,
         additional_inputs=[
             gr.Slider(0.0, 1.5, step=0.05, value=0.1, label="🔥 Temperatura"),
             gr.Slider(1.0, 2.0, step=0.05, value=1.15, label="🔁 Penalidade Repeticao"),
