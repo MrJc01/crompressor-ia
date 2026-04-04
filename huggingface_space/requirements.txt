@@ -1,0 +1,3 @@
+huggingface_hub
+# Usa biblioteca precompilada pro hugging face spaces (sem gpu pra build mais rápido e leve no free tier)
+llama-cpp-python==0.2.77
