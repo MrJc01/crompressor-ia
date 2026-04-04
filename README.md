@@ -8,10 +8,13 @@
   [![Hardware](https://img.shields.io/badge/Hardware-Intel_i5__IvyBridge-blue.svg)](https://en.wikipedia.org/wiki/Ivy_Bridge_(microarchitecture))
   
   <br>
-  <a href="https://huggingface.co/CromIA/CROM-IA-V1-DNA"><img src="https://img.shields.io/badge/🤗_HuggingFace-CROM--IA--V1--DNA-ff9d00.svg?style=for-the-badge" alt="HuggingFace Models"></a>
+  <a href="https://huggingface.co/CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic"><img src="https://img.shields.io/badge/🤗_HuggingFace-CROM--IA--V3.5--Organic-ff9d00.svg?style=for-the-badge" alt="HuggingFace Models"></a>
 </div>
 
 <br>
+
+**📢 ÚLTIMA ATUALIZAÇÃO (ABRIL 2026) — CROM-IA V3.5b (A Fase de Cura):**
+O modelo purificou de forma orgânica a sua capacidade de chat em Português usando 117.860 amostras no Qwen2.5-1.5B. Uma falha sub-simbólica (o *Caso Bicarbonato*) documentada em `docs/CROM_IA_DIARY_V35b.md` expurgou totalmente a alucinação de código da V3.0. Estamos pavimentando o roadmap para a **Arquitetura Multi-Brain O(1) (V4.0)**.
 
 O **CROM-IA** é uma arquitetura revolucionária que permite a execução de Redes Neurais (LLMs Reais como LLaMA e Qwen) em computadores sem Placa de Vídeo dedicada e com menos de **3GB de memória RAM disponível**.
 

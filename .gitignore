@@ -20,6 +20,7 @@ benchmark_results_*.txt
 
 # Datasets Dinâmicos Gigantes
 datasets/*.jsonl
+v3_engine/data/
 
 # Python / Pytorch
 __pycache__/

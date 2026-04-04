@@ -14,19 +14,20 @@ except ImportError:
     from huggingface_hub import HfApi
 
 api = HfApi()
-REPO_ID = "CromIA/CROM-IA-V1-DNA"
+REPO_ID = "CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic" # Criando repositório novo para a V3.5
+try:
+    api.create_repo(repo_id=REPO_ID, repo_type="model", exist_ok=True)
+except Exception as e:
+    print(f"Aviso ao criar repo (provavelmente já existe): {e}")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Artefatos para subir
 ARQUIVOS = [
-    # Modelos GGUF
-    ("models/crom-dna-1x3-fixo.gguf", "crom-dna-1x3-fixo.gguf"),
-    ("models/crom-dna-1x5-fixo.gguf", "crom-dna-1x5-fixo.gguf"),
-    # Codebooks (essenciais para decodificação)
-    ("codebooks/codebook_1x3_fixo.json", "codebooks/codebook_1x3_fixo.json"),
-    ("codebooks/codebook_1x5_fixo.json", "codebooks/codebook_1x5_fixo.json"),
-    ("codebooks/codebook_1x3_dinamico.json", "codebooks/codebook_1x3_dinamico.json"),
-    ("codebooks/codebook_1x5_dinamico.json", "codebooks/codebook_1x5_dinamico.json"),
+    # Modelo GGUF (V3.5b - 117k)
+    ("models/Qwen2.5-1.5B-Instruct.Q4_K_M-v3.5b_117k.gguf", "Qwen2.5-1.5B-Instruct.Q4_K_M-v3.5b_117k.gguf"),
+    # Codebook V3 (Com o bug de bicarbonato/piadas descoberto)
+    ("v3_engine/macro_codebook_v3.json", "logs_and_codebooks/bugged_codebook_v3_recipes.json"),
+    ("docs/CROM_IA_DIARY_V35b.md", "README.md"), # O diário será o Model Card!
 ]
 
 print(f"🧬 CROM-IA Upload para HuggingFace ({REPO_ID})")
