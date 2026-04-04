@@ -1,0 +1,1145 @@
+{
+  "version": "3.0",
+  "description": "Dicionário RAG Dimensional V3",
+  "escape_prefix": "@@",
+  "entries": {
+    "AA": {
+      "text": "Por que os cientistas não confiam em átomos",
+      "freq": 16,
+      "bytes": 43,
+      "compression_ratio": 21.5
+    },
+    "AT": {
+      "text": "- 1 colher de chá de bicarbonato de sódio",
+      "freq": 16,
+      "bytes": 41,
+      "compression_ratio": 20.5
+    },
+    "AC": {
+      "text": "(Escala de 1-5, 1 significando nada confortável em tudo, 5 sendo muito confortável)",
+      "freq": 7,
+      "bytes": 83,
+      "compression_ratio": 41.5
+    },
+    "AG": {
+      "text": "Aqui está uma receita simples que você pode seguir:",
+      "freq": 11,
+      "bytes": 51,
+      "compression_ratio": 25.5
+    },
+    "TA": {
+      "text": "- 1/2 colher de chá de bicarbonato de sódio",
+      "freq": 12,
+      "bytes": 43,
+      "compression_ratio": 21.5
+    },
+    "TT": {
+      "text": "Por que os cientistas não confiam nos átomos",
+      "freq": 11,
+      "bytes": 44,
+      "compression_ratio": 22.0
+    },
+    "TC": {
+      "text": "- Bebidas: água, chá sem açúcar ou café preto ao longo do dia",
+      "freq": 7,
+      "bytes": 61,
+      "compression_ratio": 30.5
+    },
+    "TG": {
+      "text": "Em uma panela grande, aqueça o azeite em fogo médio",
+      "freq": 8,
+      "bytes": 51,
+      "compression_ratio": 25.5
+    },
+    "CA": {
+      "text": "- Resfriamento: caminhada de 5 minutos em um ritmo lento seguido de alongamento",
+      "freq": 5,
+      "bytes": 79,
+      "compression_ratio": 39.5
+    },
+    "CT": {
+      "text": "Aquecimento: 5 minutos de cardio leve, como jumping jacks, high knees ou saltar no lugar",
+      "freq": 4,
+      "bytes": 88,
+      "compression_ratio": 44.0
+    },
+    "CC": {
+      "text": "- 2 colheres de chá de extrato de baunilha",
+      "freq": 8,
+      "bytes": 42,
+      "compression_ratio": 21.0
+    },
+    "CG": {
+      "text": "Em uma frigideira grande, aqueça o azeite em fogo médio",
+      "freq": 6,
+      "bytes": 55,
+      "compression_ratio": 27.5
+    },
+    "GA": {
+      "text": "Aqui está um exemplo de implementação do algoritmo em Python:",
+      "freq": 5,
+      "bytes": 61,
+      "compression_ratio": 30.5
+    },
+    "GT": {
+      "text": "Adicione os ovos um de cada vez, batendo bem após cada adição",
+      "freq": 5,
+      "bytes": 61,
+      "compression_ratio": 30.5
+    },
+    "GC": {
+      "text": "Tente fazer 3 séries de quantas repetições você conseguir confortavelmente",
+      "freq": 4,
+      "bytes": 74,
+      "compression_ratio": 37.0
+    },
+    "GG": {
+      "text": "Por que os gatos não jogam pôquer na selva",
+      "freq": 7,
+      "bytes": 42,
+      "compression_ratio": 21.0
+    },
+    "AAA": {
+      "text": "- Aquecimento: caminhada de 5 minutos em um ritmo moderado",
+      "freq": 5,
+      "bytes": 58,
+      "compression_ratio": 19.33
+    },
+    "AAT": {
+      "text": "num1 = int(input(\"Digite o primeiro número: \"))",
+      "freq": 6,
+      "bytes": 47,
+      "compression_ratio": 15.67
+    },
+    "AAC": {
+      "text": "num2 = int(input(\"Digite o segundo número: \"))",
+      "freq": 6,
+      "bytes": 46,
+      "compression_ratio": 15.33
+    },
+    "AAG": {
+      "text": "Há mais alguma coisa em que eu possa ajudá-lo",
+      "freq": 6,
+      "bytes": 45,
+      "compression_ratio": 15.0
+    },
+    "ATA": {
+      "text": "A área de um retângulo pode ser calculada multiplicando seu comprimento por sua largura",
+      "freq": 3,
+      "bytes": 87,
+      "compression_ratio": 29.0
+    },
+    "ATT": {
+      "text": "- Garrafas de água ou sistema de hidratação",
+      "freq": 6,
+      "bytes": 43,
+      "compression_ratio": 14.33
+    },
+    "ATC": {
+      "text": "Algumas de suas principais características incluem:",
+      "freq": 5,
+      "bytes": 51,
+      "compression_ratio": 17.0
+    },
+    "ATG": {
+      "text": "Desempenho econômico e perspectivas de crescimento",
+      "freq": 5,
+      "bytes": 50,
+      "compression_ratio": 16.67
+    },
+    "ACA": {
+      "text": "(1 - Ruim, 2 - Regular, 3 - Bom, 4 - Muito Bom, 5 - Excelente)",
+      "freq": 4,
+      "bytes": 62,
+      "compression_ratio": 20.67
+    },
+    "ACT": {
+      "text": "- 1 1/2 xícaras de farinha de trigo comum",
+      "freq": 6,
+      "bytes": 41,
+      "compression_ratio": 13.67
+    },
+    "ACC": {
+      "text": "Asse por 25-30 minutos, ou até que um palito inserido no centro do bolo saia limpo",
+      "freq": 3,
+      "bytes": 82,
+      "compression_ratio": 27.33
+    },
+    "ACG": {
+      "text": "Aqueça uma frigideira antiaderente em fogo médio",
+      "freq": 5,
+      "bytes": 48,
+      "compression_ratio": 16.0
+    },
+    "AGA": {
+      "text": "Obrigado por dedicar seu tempo para completar nossa pesquisa",
+      "freq": 4,
+      "bytes": 60,
+      "compression_ratio": 20.0
+    },
+    "AGT": {
+      "text": "Mantenho minha cabeça erguida, e meu batom vermelho também",
+      "freq": 4,
+      "bytes": 58,
+      "compression_ratio": 19.33
+    },
+    "AGC": {
+      "text": "Cozinhe a massa de acordo com as instruções da embalagem até ficar al dente",
+      "freq": 3,
+      "bytes": 75,
+      "compression_ratio": 25.0
+    },
+    "AGG": {
+      "text": "- Excelentes habilidades de comunicação verbal e escrita",
+      "freq": 4,
+      "bytes": 56,
+      "compression_ratio": 18.67
+    },
+    "TAA": {
+      "text": "Mantenha-se brilhante, mantenha-se forte, é um novo dia",
+      "freq": 4,
+      "bytes": 55,
+      "compression_ratio": 18.33
+    },
+    "TAT": {
+      "text": "Aqui está a implementação em Python do algoritmo acima:",
+      "freq": 4,
+      "bytes": 55,
+      "compression_ratio": 18.33
+    },
+    "TAC": {
+      "text": "Asse por 30-35 minutos ou até que um palito inserido no centro saia limpo",
+      "freq": 3,
+      "bytes": 73,
+      "compression_ratio": 24.33
+    },
+    "TAG": {
+      "text": "Aqui estão algumas de suas principais características:",
+      "freq": 4,
+      "bytes": 54,
+      "compression_ratio": 18.0
+    },
+    "TTA": {
+      "text": "Há mais alguma coisa em que eu possa ajudar",
+      "freq": 5,
+      "bytes": 43,
+      "compression_ratio": 14.33
+    },
+    "TTT": {
+      "text": "Por que o livro de matemática estava triste",
+      "freq": 5,
+      "bytes": 43,
+      "compression_ratio": 14.33
+    },
+    "TTC": {
+      "text": "- Beverages: Water, unsweetened tea, or black coffee throughout the day",
+      "freq": 3,
+      "bytes": 71,
+      "compression_ratio": 23.67
+    },
+    "TTG": {
+      "text": "Se o primeiro elemento for maior do que o segundo, troque suas posições",
+      "freq": 3,
+      "bytes": 71,
+      "compression_ratio": 23.67
+    },
+    "TCA": {
+      "text": "- 1/2 colher de chá de extrato de baunilha",
+      "freq": 5,
+      "bytes": 42,
+      "compression_ratio": 14.0
+    },
+    "TCT": {
+      "text": "Há mais alguma coisa em que posso ajudá-lo",
+      "freq": 5,
+      "bytes": 42,
+      "compression_ratio": 14.0
+    },
+    "TCC": {
+      "text": "Isso pode aumentar a visibilidade da sua marca e atrair novos clientes",
+      "freq": 3,
+      "bytes": 70,
+      "compression_ratio": 23.33
+    },
+    "TCG": {
+      "text": "Porque toda vez que nos tocamos, sinto em minha alma",
+      "freq": 4,
+      "bytes": 52,
+      "compression_ratio": 17.33
+    },
+    "TGA": {
+      "text": "Pré-aqueça o forno a 350 graus Fahrenheit",
+      "freq": 5,
+      "bytes": 41,
+      "compression_ratio": 13.67
+    },
+    "TGT": {
+      "text": "O que começa com um E, termina com um E, mas contém apenas uma letra",
+      "freq": 3,
+      "bytes": 68,
+      "compression_ratio": 22.67
+    },
+    "TGC": {
+      "text": "Cante-me uma música bluesy, para combinar com as lágrimas que choro",
+      "freq": 3,
+      "bytes": 67,
+      "compression_ratio": 22.33
+    },
+    "TGG": {
+      "text": "Um pequeno passo para o homem, um salto gigante para a humanidade,",
+      "freq": 3,
+      "bytes": 66,
+      "compression_ratio": 22.0
+    },
+    "CAA": {
+      "text": "Embora as coisas possam parecer difíceis, nunca perca o caminho",
+      "freq": 3,
+      "bytes": 63,
+      "compression_ratio": 21.0
+    },
+    "CAT": {
+      "text": "- Cadeiras de acampamento ou assentos portáteis",
+      "freq": 4,
+      "bytes": 47,
+      "compression_ratio": 15.67
+    },
+    "CAC": {
+      "text": "Adicione os ovos, um de cada vez, batendo bem após cada adição",
+      "freq": 3,
+      "bytes": 62,
+      "compression_ratio": 20.67
+    },
+    "CAG": {
+      "text": "Bob Dylan, ele é o cara, ganhando prêmios, com um plano mestre",
+      "freq": 3,
+      "bytes": 62,
+      "compression_ratio": 20.67
+    },
+    "CTA": {
+      "text": "Aqui estão alguns passos que você pode seguir:",
+      "freq": 4,
+      "bytes": 46,
+      "compression_ratio": 15.33
+    },
+    "CTT": {
+      "text": "Tempere os peitos de frango com sal e pimenta",
+      "freq": 4,
+      "bytes": 45,
+      "compression_ratio": 15.0
+    },
+    "CTC": {
+      "text": "- 2 xícaras de gotas de chocolate meio amargo",
+      "freq": 4,
+      "bytes": 45,
+      "compression_ratio": 15.0
+    },
+    "CTG": {
+      "text": "Substituindo esses valores na fórmula, temos:",
+      "freq": 4,
+      "bytes": 45,
+      "compression_ratio": 15.0
+    },
+    "CCA": {
+      "text": "Cante-me uma música bluesy, sinto que estou prestes a morrer",
+      "freq": 3,
+      "bytes": 60,
+      "compression_ratio": 20.0
+    },
+    "CCT": {
+      "text": "Espero que este e-mail o encontre com boa saúde e disposição",
+      "freq": 3,
+      "bytes": 60,
+      "compression_ratio": 20.0
+    },
+    "CCC": {
+      "text": "Sentimentos persistentes de tristeza, desesperança ou vazio",
+      "freq": 3,
+      "bytes": 59,
+      "compression_ratio": 19.67
+    },
+    "CCG": {
+      "text": "As notas sobem e descem, mas continuamos seguindo em frente",
+      "freq": 3,
+      "bytes": 59,
+      "compression_ratio": 19.67
+    },
+    "CGA": {
+      "text": "Certifique-se de que suas roupas estejam limpas e sem rugas",
+      "freq": 3,
+      "bytes": 59,
+      "compression_ratio": 19.67
+    },
+    "CGT": {
+      "text": "- 1 colher de sopa de gengibre fresco ralado",
+      "freq": 4,
+      "bytes": 44,
+      "compression_ratio": 14.67
+    },
+    "CGC": {
+      "text": "A moral da história é que devagar e sempre ganha a corrida",
+      "freq": 3,
+      "bytes": 58,
+      "compression_ratio": 19.33
+    },
+    "CGG": {
+      "text": "Guitarra, Viola e Bateria – cada um de nós toca sua parte",
+      "freq": 3,
+      "bytes": 57,
+      "compression_ratio": 19.0
+    },
+    "GAA": {
+      "text": "Deixa o teu coração guiar-te, deixá-lo liderar o caminho,",
+      "freq": 3,
+      "bytes": 57,
+      "compression_ratio": 19.0
+    },
+    "GAT": {
+      "text": "- 1/4 colher de chá de extrato de baunilha",
+      "freq": 4,
+      "bytes": 42,
+      "compression_ratio": 14.0
+    },
+    "GAC": {
+      "text": "Cante-me uma música bluesy, para preencher a noite vazia",
+      "freq": 3,
+      "bytes": 56,
+      "compression_ratio": 18.67
+    },
+    "GAG": {
+      "text": "Você faz tudo ficar certo, em seu amor estou enfeitiçado",
+      "freq": 3,
+      "bytes": 56,
+      "compression_ratio": 18.67
+    },
+    "GTA": {
+      "text": "Cante-me uma música bluesy, para fazer tudo parecer bem",
+      "freq": 3,
+      "bytes": 55,
+      "compression_ratio": 18.33
+    },
+    "GTT": {
+      "text": "Mas eu continuo caminhando, com esperança na minha alma",
+      "freq": 3,
+      "bytes": 55,
+      "compression_ratio": 18.33
+    },
+    "GTC": {
+      "text": "E vou continuar dançando como se nunca tivesse te amado",
+      "freq": 3,
+      "bytes": 55,
+      "compression_ratio": 18.33
+    },
+    "GTG": {
+      "text": "- 2 colheres de sopa de vinagre balsâmico",
+      "freq": 4,
+      "bytes": 41,
+      "compression_ratio": 13.67
+    },
+    "GCA": {
+      "text": "Garrafas de água ou sistema de hidratação",
+      "freq": 4,
+      "bytes": 41,
+      "compression_ratio": 13.67
+    },
+    "GCT": {
+      "text": "Twinkle twinkle little star (brilhe brilhe estrelinha)",
+      "freq": 3,
+      "bytes": 54,
+      "compression_ratio": 18.0
+    },
+    "GCC": {
+      "text": "Com cada batida e cada nota, colocamos nossos corações",
+      "freq": 3,
+      "bytes": 54,
+      "compression_ratio": 18.0
+    },
+    "GCG": {
+      "text": "Quando se trata de amor, você é tudo que preciso saber",
+      "freq": 3,
+      "bytes": 54,
+      "compression_ratio": 18.0
+    },
+    "GGA": {
+      "text": "Dançando a noite toda, sob as estrelas tão brilhantes,",
+      "freq": 3,
+      "bytes": 54,
+      "compression_ratio": 18.0
+    },
+    "GGT": {
+      "text": "Porque as estrelas acima brilham para você e para mim,",
+      "freq": 3,
+      "bytes": 54,
+      "compression_ratio": 18.0
+    },
+    "GGC": {
+      "text": "Mas eu vou seguir em frente, vou encontrar meu caminho",
+      "freq": 3,
+      "bytes": 54,
+      "compression_ratio": 18.0
+    },
+    "GGG": {
+      "text": "Porque querido, o coração partido não é tão novo assim",
+      "freq": 3,
+      "bytes": 54,
+      "compression_ratio": 18.0
+    },
+    "AAAA": {
+      "text": "- 1/2 colher de chá de extrato de baunilha (opcional)",
+      "freq": 3,
+      "bytes": 53,
+      "compression_ratio": 13.25
+    },
+    "AAAT": {
+      "text": "A vida é curta demais para se preocupar com o passado",
+      "freq": 3,
+      "bytes": 53,
+      "compression_ratio": 13.25
+    },
+    "AAAC": {
+      "text": "Venha e junte-se à sinfonia, venha cantar esta canção",
+      "freq": 3,
+      "bytes": 53,
+      "compression_ratio": 13.25
+    },
+    "AAAG": {
+      "text": "Faça isso frequentemente, você sabe o que quero dizer",
+      "freq": 3,
+      "bytes": 53,
+      "compression_ratio": 13.25
+    },
+    "AATA": {
+      "text": "Podemos ser mais velhos, mas nosso amor ainda é claro",
+      "freq": 3,
+      "bytes": 53,
+      "compression_ratio": 13.25
+    },
+    "AATT": {
+      "text": "Descanse 1 minuto e repita o circuito por 3-4 rodadas",
+      "freq": 3,
+      "bytes": 53,
+      "compression_ratio": 13.25
+    },
+    "AATC": {
+      "text": "Chegou com a vitória, como se estivesse cuspindo fogo",
+      "freq": 3,
+      "bytes": 53,
+      "compression_ratio": 13.25
+    },
+    "AATG": {
+      "text": "Oh, o ritmo da estrada, é onde todos nós pertencemos",
+      "freq": 3,
+      "bytes": 52,
+      "compression_ratio": 13.0
+    },
+    "AACA": {
+      "text": "Mantenha-se positivo, você vai conseguir com o tempo",
+      "freq": 3,
+      "bytes": 52,
+      "compression_ratio": 13.0
+    },
+    "AACT": {
+      "text": "Despeje o smoothie em um copo e sirva imediatamente",
+      "freq": 3,
+      "bytes": 51,
+      "compression_ratio": 12.75
+    },
+    "AACC": {
+      "text": "\"O Apanhador no Campo de Centeio\" é um romance de J",
+      "freq": 3,
+      "bytes": 51,
+      "compression_ratio": 12.75
+    },
+    "AACG": {
+      "text": "E nós tocamos nossa música, tocamos nossos corações",
+      "freq": 3,
+      "bytes": 51,
+      "compression_ratio": 12.75
+    },
+    "AAGA": {
+      "text": "Um mundo de possibilidades onde podemos fazer tudo,",
+      "freq": 3,
+      "bytes": 51,
+      "compression_ratio": 12.75
+    },
+    "AAGT": {
+      "text": "Ficar em casa, emergiremos mais fortes do que nunca",
+      "freq": 3,
+      "bytes": 51,
+      "compression_ratio": 12.75
+    },
+    "AAGC": {
+      "text": "Feliz aniversário, tudo isso para você hoje à noite",
+      "freq": 3,
+      "bytes": 51,
+      "compression_ratio": 12.75
+    },
+    "AAGG": {
+      "text": "Nós sempre sentiremos falta do nosso amor de verão",
+      "freq": 3,
+      "bytes": 50,
+      "compression_ratio": 12.5
+    },
+    "ATAA": {
+      "text": "Aqui estão algumas diferenças-chave entre os dois:",
+      "freq": 3,
+      "bytes": 50,
+      "compression_ratio": 12.5
+    },
+    "ATAT": {
+      "text": "- Botão Voltar para retornar à tela de boas-vindas",
+      "freq": 3,
+      "bytes": 50,
+      "compression_ratio": 12.5
+    },
+    "ATAC": {
+      "text": "Há mais alguma coisa em que eu possa ajudá-lo hoje",
+      "freq": 3,
+      "bytes": 50,
+      "compression_ratio": 12.5
+    },
+    "ATAG": {
+      "text": "O conhecimento é poder, bata nos livros por horas,",
+      "freq": 3,
+      "bytes": 50,
+      "compression_ratio": 12.5
+    },
+    "ATTA": {
+      "text": "Uma canção de alegria, deixe nossos corações soar,",
+      "freq": 3,
+      "bytes": 50,
+      "compression_ratio": 12.5
+    },
+    "ATTT": {
+      "text": "num1 = float(input(\"Digite o primeiro número: \"))",
+      "freq": 3,
+      "bytes": 49,
+      "compression_ratio": 12.25
+    },
+    "ATTC": {
+      "text": "Livrar-se de germes ruins, manter os bons à vista",
+      "freq": 3,
+      "bytes": 49,
+      "compression_ratio": 12.25
+    },
+    "ATTG": {
+      "text": "Perdido na cidade, tentando encontrar meu caminho",
+      "freq": 3,
+      "bytes": 49,
+      "compression_ratio": 12.25
+    },
+    "ATCA": {
+      "text": "Mantenha sua cabeça erguida, não franzas a testa,",
+      "freq": 3,
+      "bytes": 49,
+      "compression_ratio": 12.25
+    },
+    "ATCT": {
+      "text": "Para a lua voaram, conquistando novos horizontes,",
+      "freq": 3,
+      "bytes": 49,
+      "compression_ratio": 12.25
+    },
+    "ATCC": {
+      "text": "Um triunfo da humanidade, um momento imortalizado",
+      "freq": 3,
+      "bytes": 49,
+      "compression_ratio": 12.25
+    },
+    "ATCG": {
+      "text": "Eu tenho o jogo sob controle, faça uma reverência",
+      "freq": 3,
+      "bytes": 49,
+      "compression_ratio": 12.25
+    },
+    "ATGA": {
+      "text": "Tornando a computação fácil para você e para mim",
+      "freq": 3,
+      "bytes": 48,
+      "compression_ratio": 12.0
+    },
+    "ATGT": {
+      "text": "num2 = float(input(\"Digite o segundo número: \"))",
+      "freq": 3,
+      "bytes": 48,
+      "compression_ratio": 12.0
+    },
+    "ATGC": {
+      "text": "Corajoso e ousado, ele é o herói de nossa cidade",
+      "freq": 3,
+      "bytes": 48,
+      "compression_ratio": 12.0
+    },
+    "ATGG": {
+      "text": "Procure beber pelo menos 8 copos de água por dia",
+      "freq": 3,
+      "bytes": 48,
+      "compression_ratio": 12.0
+    },
+    "ACAA": {
+      "text": "Eu tenho o poder, ninguém está no mesmo patamar,",
+      "freq": 3,
+      "bytes": 48,
+      "compression_ratio": 12.0
+    },
+    "ACAT": {
+      "text": "Deixe a bateria e a guitarra liderarem o caminho",
+      "freq": 3,
+      "bytes": 48,
+      "compression_ratio": 12.0
+    },
+    "ACAC": {
+      "text": "Ele é o nosso herói em azul, firme e verdadeiro",
+      "freq": 3,
+      "bytes": 47,
+      "compression_ratio": 11.75
+    },
+    "ACAG": {
+      "text": "Há mais alguma coisa que você gostaria de saber",
+      "freq": 3,
+      "bytes": 47,
+      "compression_ratio": 11.75
+    },
+    "ACTA": {
+      "text": "Aqui estão algumas etapas que você pode seguir:",
+      "freq": 3,
+      "bytes": 47,
+      "compression_ratio": 11.75
+    },
+    "ACTT": {
+      "text": "- 1 colher de chá de flocos de pimenta vermelha",
+      "freq": 3,
+      "bytes": 47,
+      "compression_ratio": 11.75
+    },
+    "ACTC": {
+      "text": "Aqui estão alguns passos que podem ser tomados:",
+      "freq": 3,
+      "bytes": 47,
+      "compression_ratio": 11.75
+    },
+    "ACTG": {
+      "text": "Meu coração está pesado, minha alma não é livre",
+      "freq": 3,
+      "bytes": 47,
+      "compression_ratio": 11.75
+    },
+    "ACCA": {
+      "text": "Estou cantando blues apenas para seguir adiante",
+      "freq": 3,
+      "bytes": 47,
+      "compression_ratio": 11.75
+    },
+    "ACCT": {
+      "text": "Um mundo de inovação, ao alcance de nossas mãos",
+      "freq": 3,
+      "bytes": 47,
+      "compression_ratio": 11.75
+    },
+    "ACCC": {
+      "text": "- 2 colheres de sopa de cacau em pó sem açúcar",
+      "freq": 3,
+      "bytes": 46,
+      "compression_ratio": 11.5
+    },
+    "ACCG": {
+      "text": "É uma melodia da vida, uma canção interminável",
+      "freq": 3,
+      "bytes": 46,
+      "compression_ratio": 11.5
+    },
+    "ACGA": {
+      "text": "Pré-aqueça o forno a 425 graus F (220 graus C)",
+      "freq": 3,
+      "bytes": 46,
+      "compression_ratio": 11.5
+    },
+    "ACGT": {
+      "text": "Mantenha a cabeça erguida e continue brilhando",
+      "freq": 3,
+      "bytes": 46,
+      "compression_ratio": 11.5
+    },
+    "ACGC": {
+      "text": "Quando a vida fica difícil, continue escalando",
+      "freq": 3,
+      "bytes": 46,
+      "compression_ratio": 11.5
+    },
+    "ACGG": {
+      "text": "Porque tens uma força que ninguém pode duvidar",
+      "freq": 3,
+      "bytes": 46,
+      "compression_ratio": 11.5
+    },
+    "AGAA": {
+      "text": "- 1/2 xícara de gotas de chocolate meio amargo",
+      "freq": 3,
+      "bytes": 46,
+      "compression_ratio": 11.5
+    },
+    "AGAT": {
+      "text": "E o amor que compartilhamos pode nos libertar,",
+      "freq": 3,
+      "bytes": 46,
+      "compression_ratio": 11.5
+    },
+    "AGAC": {
+      "text": "Aqui estão algumas maneiras de alcançar isso:",
+      "freq": 3,
+      "bytes": 45,
+      "compression_ratio": 11.25
+    },
+    "AGAG": {
+      "text": "Você e eu, estamos destinados a estar juntos,",
+      "freq": 3,
+      "bytes": 45,
+      "compression_ratio": 11.25
+    },
+    "AGTA": {
+      "text": "Enquanto dançamos ao ritmo de um tempo lento,",
+      "freq": 3,
+      "bytes": 45,
+      "compression_ratio": 11.25
+    },
+    "AGTT": {
+      "text": "Perdido na cidade, me sentindo tão angustiado",
+      "freq": 3,
+      "bytes": 45,
+      "compression_ratio": 11.25
+    },
+    "AGTC": {
+      "text": "Através da tempestade, enfrentaremos o clima,",
+      "freq": 3,
+      "bytes": 45,
+      "compression_ratio": 11.25
+    },
+    "AGTG": {
+      "text": "Não consigo encontrar meu caminho e é um fato",
+      "freq": 3,
+      "bytes": 45,
+      "compression_ratio": 11.25
+    },
+    "AGCA": {
+      "text": "Misturando os sabores, é assim que desfilamos",
+      "freq": 3,
+      "bytes": 45,
+      "compression_ratio": 11.25
+    },
+    "AGCT": {
+      "text": "\"Por que os cientistas não confiam em átomos",
+      "freq": 3,
+      "bytes": 44,
+      "compression_ratio": 11.0
+    },
+    "AGCC": {
+      "text": "Um guardião da justiça, para mim e para você",
+      "freq": 3,
+      "bytes": 44,
+      "compression_ratio": 11.0
+    },
+    "AGCG": {
+      "text": "Aqui estão alguns dos principais benefícios:",
+      "freq": 3,
+      "bytes": 44,
+      "compression_ratio": 11.0
+    },
+    "AGGA": {
+      "text": "Regue com azeite e tempere com sal e pimenta",
+      "freq": 3,
+      "bytes": 44,
+      "compression_ratio": 11.0
+    },
+    "AGGT": {
+      "text": "Adicione o extrato de baunilha e misture bem",
+      "freq": 3,
+      "bytes": 44,
+      "compression_ratio": 11.0
+    },
+    "AGGC": {
+      "text": "E a esse amor, dou meu coração, minha mente,",
+      "freq": 3,
+      "bytes": 44,
+      "compression_ratio": 11.0
+    },
+    "AGGG": {
+      "text": "Começamos nossa jornada, de mãos dadas vamos",
+      "freq": 3,
+      "bytes": 44,
+      "compression_ratio": 11.0
+    },
+    "TAAA": {
+      "text": "Adicione o alho e cozinhe por mais um minuto",
+      "freq": 3,
+      "bytes": 44,
+      "compression_ratio": 11.0
+    },
+    "TAAT": {
+      "text": "É o brinquedo que traz alegria, e é todo seu",
+      "freq": 3,
+      "bytes": 44,
+      "compression_ratio": 11.0
+    },
+    "TAAC": {
+      "text": "O executor da lei, que nunca nos decepciona",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TAAG": {
+      "text": "Nós vamos, nós nunca vamos parar, é verdade",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TATA": {
+      "text": "Misture os ingredientes até ficar homogêneo",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TATT": {
+      "text": "E eu sinto sua falta, oh eu sinto sua falta",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TATC": {
+      "text": "Dançamos na chuva, deixamos a dor para trás",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TATG": {
+      "text": "Você ilumina o meu mundo, afasta as nuvens,",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TACA": {
+      "text": "Sou viciada em você, você é meu rock n roll",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TACT": {
+      "text": "O caminho da vida, oh é uma estrada sinuosa",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TACC": {
+      "text": "Ele é poeta e cantor, elevando a literatura",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TACG": {
+      "text": "Oh, como eles piando e cantando sua música,",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TAGA": {
+      "text": "O jeito que tornas tudo melhor só por seres",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TAGT": {
+      "text": "Construindo e criando, tudo depende de você",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TAGC": {
+      "text": "Ciência da computação, é o script do futuro",
+      "freq": 3,
+      "bytes": 43,
+      "compression_ratio": 10.75
+    },
+    "TAGG": {
+      "text": "Sempre há esperança, desde que acreditemos",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTAA": {
+      "text": "Aqui estão os passos que você pode seguir:",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTAT": {
+      "text": "Com que frequência você faz compras online",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTAC": {
+      "text": "Despeje a massa na forma de bolo preparada",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTAG": {
+      "text": "- 3 colheres de sopa de manteiga derretida",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTTA": {
+      "text": "Substituindo os valores na fórmula, temos:",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTTT": {
+      "text": "Persiga seus sonhos, nunca os deixe morrer",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTTC": {
+      "text": "Aqui está uma receita simples para seguir:",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTTG": {
+      "text": "Vamos pegar essa emoção e deixá-la crescer",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTCA": {
+      "text": "Às vezes é pesado, às vezes alivia a carga",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTCT": {
+      "text": "Enquanto a luz do dia lentamente se afasta",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTCC": {
+      "text": "Para sempre no tempo, aquele momento é meu",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTCG": {
+      "text": "Graciosos e livres, eles planam com graça,",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTGA": {
+      "text": "Uma sinfonia de penas, em seu lugar mágico",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTGT": {
+      "text": "Mesmo quando a estrada é sinuosa e íngreme",
+      "freq": 3,
+      "bytes": 42,
+      "compression_ratio": 10.5
+    },
+    "TTGC": {
+      "text": "Um amigo, a melhor coisa que você já teve",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TTGG": {
+      "text": "Espero que este e-mail encontre vocês bem",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCAA": {
+      "text": "Obrigado por participar da nossa pesquisa",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCAT": {
+      "text": "Pré-aqueça o forno a 425 graus Fahrenheit",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCAC": {
+      "text": "Dando-lhe as boas-vindas a um novo mundo,",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCAG": {
+      "text": "Tempere o molho com sal e pimenta a gosto",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCTA": {
+      "text": "Agradecemos a sua paciência e compreensão",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCTT": {
+      "text": "- 1 xícara de leite de amêndoa sem açúcar",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCTC": {
+      "text": "- 1 xícara de folhas de espinafre frescas",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCTG": {
+      "text": "Eu preciso de você, oh eu preciso de você",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCCA": {
+      "text": "Conforme eu avanço, para uma vida inteira",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCCT": {
+      "text": "Eu amo a paz e tranquilidade que eu tenho",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCCC": {
+      "text": "- ½ colher de chá de bicarbonato de sódio",
+      "freq": 3,
+      "bytes": 41,
+      "compression_ratio": 10.25
+    },
+    "TCCG": {
+      "text": "| Campo | Tipo | Descrição |",
+      "freq": 3,
+      "bytes": 28,
+      "compression_ratio": 7.0
+    },
+    "TCGA": {
+      "text": "| | Foto | Foto | |",
+      "freq": 3,
+      "bytes": 19,
+      "compression_ratio": 4.75
+    }
+  },
+  "stats": {
+    "total_macros": 189,
+    "total_bytes_economizados_corpus": 34679
+  }
+}
