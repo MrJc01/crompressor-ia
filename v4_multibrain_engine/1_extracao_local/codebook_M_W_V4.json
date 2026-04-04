@@ -1,0 +1,408 @@
+{
+  "version": "4.0",
+  "domain": "M",
+  "hierarchy": "W",
+  "escape_prefix": "@@",
+  "entries": {
+    "MWAA": {
+      "text": "symptoms",
+      "freq": 1939,
+      "bytes": 8
+    },
+    "MWAT": {
+      "text": "condition",
+      "freq": 1463,
+      "bytes": 9
+    },
+    "MWAC": {
+      "text": "disease",
+      "freq": 1384,
+      "bytes": 7
+    },
+    "MWAG": {
+      "text": "typically",
+      "freq": 1203,
+      "bytes": 9
+    },
+    "MWTA": {
+      "text": "associated",
+      "freq": 1157,
+      "bytes": 10
+    },
+    "MWTT": {
+      "text": "characterized",
+      "freq": 1136,
+      "bytes": 13
+    },
+    "MWTC": {
+      "text": "including",
+      "freq": 1091,
+      "bytes": 9
+    },
+    "MWTG": {
+      "text": "caused",
+      "freq": 1072,
+      "bytes": 6
+    },
+    "MWCA": {
+      "text": "important",
+      "freq": 994,
+      "bytes": 9
+    },
+    "MWCT": {
+      "text": "infection",
+      "freq": 963,
+      "bytes": 9
+    },
+    "MWCC": {
+      "text": "include",
+      "freq": 959,
+      "bytes": 7
+    },
+    "MWCG": {
+      "text": "treatment",
+      "freq": 886,
+      "bytes": 9
+    },
+    "MWGA": {
+      "text": "commonly",
+      "freq": 840,
+      "bytes": 8
+    },
+    "MWGT": {
+      "text": "cancer",
+      "freq": 785,
+      "bytes": 6
+    },
+    "MWGC": {
+      "text": "Treatment",
+      "freq": 769,
+      "bytes": 9
+    },
+    "MWGG": {
+      "text": "infections",
+      "freq": 752,
+      "bytes": 10
+    },
+    "MWTAA": {
+      "text": "injury",
+      "freq": 190,
+      "bytes": 6
+    },
+    "MWTAT": {
+      "text": "mechanism",
+      "freq": 190,
+      "bytes": 9
+    },
+    "MWTAC": {
+      "text": "positive",
+      "freq": 189,
+      "bytes": 8
+    },
+    "MWTAG": {
+      "text": "against",
+      "freq": 188,
+      "bytes": 7
+    },
+    "MWTTA": {
+      "text": "infected",
+      "freq": 188,
+      "bytes": 8
+    },
+    "MWTTT": {
+      "text": "diarrhea",
+      "freq": 184,
+      "bytes": 8
+    },
+    "MWTTC": {
+      "text": "vaccine",
+      "freq": 182,
+      "bytes": 7
+    },
+    "MWTTG": {
+      "text": "usually",
+      "freq": 181,
+      "bytes": 7
+    },
+    "MWTCA": {
+      "text": "lymphoma",
+      "freq": 181,
+      "bytes": 8
+    },
+    "MWTCT": {
+      "text": "physical",
+      "freq": 177,
+      "bytes": 8
+    },
+    "MWTCC": {
+      "text": "breast",
+      "freq": 173,
+      "bytes": 6
+    },
+    "MWTCG": {
+      "text": "negative",
+      "freq": 173,
+      "bytes": 8
+    },
+    "MWTGA": {
+      "text": "surface",
+      "freq": 171,
+      "bytes": 7
+    },
+    "MWTGT": {
+      "text": "addition",
+      "freq": 171,
+      "bytes": 8
+    },
+    "MWTGC": {
+      "text": "calcium",
+      "freq": 170,
+      "bytes": 7
+    },
+    "MWTGG": {
+      "text": "develop",
+      "freq": 170,
+      "bytes": 7
+    },
+    "MWCAA": {
+      "text": "binding",
+      "freq": 168,
+      "bytes": 7
+    },
+    "MWCAT": {
+      "text": "Symptoms",
+      "freq": 167,
+      "bytes": 8
+    },
+    "MWCAC": {
+      "text": "individual",
+      "freq": 167,
+      "bytes": 10
+    },
+    "MWCAG": {
+      "text": "inhibiting",
+      "freq": 165,
+      "bytes": 10
+    },
+    "MWCTA": {
+      "text": "become",
+      "freq": 165,
+      "bytes": 6
+    },
+    "MWCTT": {
+      "text": "improve",
+      "freq": 163,
+      "bytes": 7
+    },
+    "MWCTC": {
+      "text": "untreated",
+      "freq": 162,
+      "bytes": 9
+    },
+    "MWCTG": {
+      "text": "further",
+      "freq": 162,
+      "bytes": 7
+    },
+    "MWCCA": {
+      "text": "reaction",
+      "freq": 161,
+      "bytes": 8
+    },
+    "MWCCT": {
+      "text": "pathway",
+      "freq": 161,
+      "bytes": 7
+    },
+    "MWCCC": {
+      "text": "receptors",
+      "freq": 160,
+      "bytes": 9
+    },
+    "MWCCG": {
+      "text": "surgical",
+      "freq": 159,
+      "bytes": 8
+    },
+    "MWCGA": {
+      "text": "kidneys",
+      "freq": 158,
+      "bytes": 7
+    },
+    "MWCGT": {
+      "text": "release",
+      "freq": 157,
+      "bytes": 7
+    },
+    "MWCGC": {
+      "text": "primarily",
+      "freq": 156,
+      "bytes": 9
+    },
+    "MWCGG": {
+      "text": "bladder",
+      "freq": 156,
+      "bytes": 7
+    },
+    "MWGAA": {
+      "text": "muscles",
+      "freq": 156,
+      "bytes": 7
+    },
+    "MWGAT": {
+      "text": "artery",
+      "freq": 156,
+      "bytes": 6
+    },
+    "MWGAC": {
+      "text": "significant",
+      "freq": 155,
+      "bytes": 11
+    },
+    "MWGAG": {
+      "text": "glucose",
+      "freq": 154,
+      "bytes": 7
+    },
+    "MWGTA": {
+      "text": "require",
+      "freq": 225,
+      "bytes": 7
+    },
+    "MWGTT": {
+      "text": "potential",
+      "freq": 224,
+      "bytes": 9
+    },
+    "MWGTC": {
+      "text": "located",
+      "freq": 224,
+      "bytes": 7
+    },
+    "MWGTG": {
+      "text": "because",
+      "freq": 223,
+      "bytes": 7
+    },
+    "MWGCA": {
+      "text": "pneumonia",
+      "freq": 221,
+      "bytes": 9
+    },
+    "MWGCT": {
+      "text": "affect",
+      "freq": 220,
+      "bytes": 6
+    },
+    "MWGCC": {
+      "text": "different",
+      "freq": 219,
+      "bytes": 9
+    },
+    "MWGCG": {
+      "text": "pregnancy",
+      "freq": 218,
+      "bytes": 9
+    },
+    "MWGGA": {
+      "text": "fatigue",
+      "freq": 216,
+      "bytes": 7
+    },
+    "MWGGT": {
+      "text": "difficulty",
+      "freq": 212,
+      "bytes": 10
+    },
+    "MWGGC": {
+      "text": "developing",
+      "freq": 212,
+      "bytes": 10
+    },
+    "MWGGG": {
+      "text": "people",
+      "freq": 212,
+      "bytes": 6
+    },
+    "MWAAA": {
+      "text": "severity",
+      "freq": 211,
+      "bytes": 8
+    },
+    "MWAAT": {
+      "text": "ability",
+      "freq": 209,
+      "bytes": 7
+    },
+    "MWAAC": {
+      "text": "synthesis",
+      "freq": 208,
+      "bytes": 9
+    },
+    "MWAAG": {
+      "text": "organs",
+      "freq": 206,
+      "bytes": 6
+    },
+    "MWATA": {
+      "text": "patient",
+      "freq": 206,
+      "bytes": 7
+    },
+    "MWATT": {
+      "text": "antibodies",
+      "freq": 204,
+      "bytes": 10
+    },
+    "MWATC": {
+      "text": "problems",
+      "freq": 204,
+      "bytes": 8
+    },
+    "MWATG": {
+      "text": "diagnosis",
+      "freq": 203,
+      "bytes": 9
+    },
+    "MWACA": {
+      "text": "factor",
+      "freq": 203,
+      "bytes": 6
+    },
+    "MWACT": {
+      "text": "necessary",
+      "freq": 200,
+      "bytes": 9
+    },
+    "MWACC": {
+      "text": "inflammatory",
+      "freq": 200,
+      "bytes": 12
+    },
+    "MWACG": {
+      "text": "seizures",
+      "freq": 199,
+      "bytes": 8
+    },
+    "MWAGA": {
+      "text": "bleeding",
+      "freq": 195,
+      "bytes": 8
+    },
+    "MWAGT": {
+      "text": "diseases",
+      "freq": 191,
+      "bytes": 8
+    },
+    "MWAGC": {
+      "text": "autoimmune",
+      "freq": 190,
+      "bytes": 10
+    },
+    "MWAGG": {
+      "text": "exposure",
+      "freq": 190,
+      "bytes": 8
+    }
+  }
+}

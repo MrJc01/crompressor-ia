@@ -1,0 +1,408 @@
+{
+  "version": "4.0",
+  "domain": "M",
+  "hierarchy": "F",
+  "escape_prefix": "@@",
+  "entries": {
+    "MFAA": {
+      "text": ", and ",
+      "freq": 4761,
+      "bytes": 6
+    },
+    "MFAT": {
+      "text": "of the ",
+      "freq": 4265,
+      "bytes": 7
+    },
+    "MFAC": {
+      "text": " of the",
+      "freq": 4263,
+      "bytes": 7
+    },
+    "MFAG": {
+      "text": " of the ",
+      "freq": 4263,
+      "bytes": 8
+    },
+    "MFTA": {
+      "text": " in the",
+      "freq": 3718,
+      "bytes": 7
+    },
+    "MFTT": {
+      "text": "in the ",
+      "freq": 3718,
+      "bytes": 7
+    },
+    "MFTC": {
+      "text": " in the ",
+      "freq": 3718,
+      "bytes": 8
+    },
+    "MFTG": {
+      "text": ", which ",
+      "freq": 3108,
+      "bytes": 8
+    },
+    "MFCA": {
+      "text": "such as ",
+      "freq": 2169,
+      "bytes": 8
+    },
+    "MFCT": {
+      "text": " such as",
+      "freq": 2147,
+      "bytes": 8
+    },
+    "MFCC": {
+      "text": " such as ",
+      "freq": 2147,
+      "bytes": 9
+    },
+    "MFCG": {
+      "text": ", which is ",
+      "freq": 2079,
+      "bytes": 11
+    },
+    "MFGA": {
+      "text": ", such as ",
+      "freq": 2052,
+      "bytes": 10
+    },
+    "MFGT": {
+      "text": "a type of ",
+      "freq": 2041,
+      "bytes": 10
+    },
+    "MFGC": {
+      "text": " a type of",
+      "freq": 2019,
+      "bytes": 10
+    },
+    "MFGG": {
+      "text": " a type of ",
+      "freq": 2019,
+      "bytes": 11
+    },
+    "MFTAA": {
+      "text": " is a condition",
+      "freq": 656,
+      "bytes": 15
+    },
+    "MFTAT": {
+      "text": "is a condition ",
+      "freq": 654,
+      "bytes": 15
+    },
+    "MFTAC": {
+      "text": " is a condition ",
+      "freq": 654,
+      "bytes": 16
+    },
+    "MFTAG": {
+      "text": ", which is a",
+      "freq": 652,
+      "bytes": 12
+    },
+    "MFTTA": {
+      "text": ", which is a ",
+      "freq": 652,
+      "bytes": 13
+    },
+    "MFTTT": {
+      "text": " the development of",
+      "freq": 650,
+      "bytes": 19
+    },
+    "MFTTC": {
+      "text": "the development of ",
+      "freq": 650,
+      "bytes": 19
+    },
+    "MFTTG": {
+      "text": " the development of ",
+      "freq": 650,
+      "bytes": 20
+    },
+    "MFTCA": {
+      "text": " caused by a",
+      "freq": 644,
+      "bytes": 12
+    },
+    "MFTCT": {
+      "text": "caused by a ",
+      "freq": 644,
+      "bytes": 12
+    },
+    "MFTCC": {
+      "text": " caused by a ",
+      "freq": 644,
+      "bytes": 13
+    },
+    "MFTCG": {
+      "text": "also known as ",
+      "freq": 615,
+      "bytes": 14
+    },
+    "MFTGA": {
+      "text": " it is",
+      "freq": 612,
+      "bytes": 6
+    },
+    "MFTGT": {
+      "text": "it is ",
+      "freq": 611,
+      "bytes": 6
+    },
+    "MFTGC": {
+      "text": " it is ",
+      "freq": 611,
+      "bytes": 7
+    },
+    "MFTGG": {
+      "text": " is important to",
+      "freq": 610,
+      "bytes": 16
+    },
+    "MFCAA": {
+      "text": "is important to ",
+      "freq": 610,
+      "bytes": 16
+    },
+    "MFCAT": {
+      "text": " is important to ",
+      "freq": 610,
+      "bytes": 17
+    },
+    "MFCAC": {
+      "text": " is an",
+      "freq": 598,
+      "bytes": 6
+    },
+    "MFCAG": {
+      "text": "is an ",
+      "freq": 598,
+      "bytes": 6
+    },
+    "MFCTA": {
+      "text": " is an ",
+      "freq": 598,
+      "bytes": 7
+    },
+    "MFCTT": {
+      "text": ", and it ",
+      "freq": 594,
+      "bytes": 9
+    },
+    "MFCTC": {
+      "text": " also known as",
+      "freq": 591,
+      "bytes": 14
+    },
+    "MFCTG": {
+      "text": " also known as ",
+      "freq": 591,
+      "bytes": 15
+    },
+    "MFCCA": {
+      "text": " and other",
+      "freq": 579,
+      "bytes": 10
+    },
+    "MFCCT": {
+      "text": "and other ",
+      "freq": 579,
+      "bytes": 10
+    },
+    "MFCCC": {
+      "text": " and other ",
+      "freq": 579,
+      "bytes": 11
+    },
+    "MFCCG": {
+      "text": " for the",
+      "freq": 576,
+      "bytes": 8
+    },
+    "MFCGA": {
+      "text": "for the ",
+      "freq": 576,
+      "bytes": 8
+    },
+    "MFCGT": {
+      "text": " for the ",
+      "freq": 576,
+      "bytes": 9
+    },
+    "MFCGC": {
+      "text": " is important",
+      "freq": 567,
+      "bytes": 13
+    },
+    "MFCGG": {
+      "text": "is important ",
+      "freq": 567,
+      "bytes": 13
+    },
+    "MFGAA": {
+      "text": " is important ",
+      "freq": 567,
+      "bytes": 14
+    },
+    "MFGAT": {
+      "text": "from the ",
+      "freq": 565,
+      "bytes": 9
+    },
+    "MFGAC": {
+      "text": " from the",
+      "freq": 562,
+      "bytes": 9
+    },
+    "MFGAG": {
+      "text": " from the ",
+      "freq": 562,
+      "bytes": 10
+    },
+    "MFGTA": {
+      "text": ". This can ",
+      "freq": 760,
+      "bytes": 11
+    },
+    "MFGTT": {
+      "text": " by the",
+      "freq": 753,
+      "bytes": 7
+    },
+    "MFGTC": {
+      "text": "by the ",
+      "freq": 753,
+      "bytes": 7
+    },
+    "MFGTG": {
+      "text": " by the ",
+      "freq": 753,
+      "bytes": 8
+    },
+    "MFGCA": {
+      "text": ", the ",
+      "freq": 753,
+      "bytes": 6
+    },
+    "MFGCT": {
+      "text": "It is ",
+      "freq": 749,
+      "bytes": 6
+    },
+    "MFGCC": {
+      "text": ". Treatment ",
+      "freq": 744,
+      "bytes": 12
+    },
+    "MFGCG": {
+      "text": " in the body",
+      "freq": 740,
+      "bytes": 12
+    },
+    "MFGGA": {
+      "text": " It is",
+      "freq": 736,
+      "bytes": 6
+    },
+    "MFGGT": {
+      "text": ". It is",
+      "freq": 736,
+      "bytes": 7
+    },
+    "MFGGC": {
+      "text": " It is ",
+      "freq": 736,
+      "bytes": 7
+    },
+    "MFGGG": {
+      "text": "is a type",
+      "freq": 696,
+      "bytes": 9
+    },
+    "MFAAA": {
+      "text": " that is characterized",
+      "freq": 694,
+      "bytes": 22
+    },
+    "MFAAT": {
+      "text": "that is characterized ",
+      "freq": 694,
+      "bytes": 22
+    },
+    "MFAAC": {
+      "text": " that is characterized ",
+      "freq": 694,
+      "bytes": 23
+    },
+    "MFAAG": {
+      "text": " is a type of ",
+      "freq": 692,
+      "bytes": 14
+    },
+    "MFATA": {
+      "text": " a range of",
+      "freq": 684,
+      "bytes": 11
+    },
+    "MFATT": {
+      "text": "a range of ",
+      "freq": 684,
+      "bytes": 11
+    },
+    "MFATC": {
+      "text": " a range of ",
+      "freq": 684,
+      "bytes": 12
+    },
+    "MFATG": {
+      "text": "that is characterized by",
+      "freq": 680,
+      "bytes": 24
+    },
+    "MFACA": {
+      "text": " that is characterized by",
+      "freq": 680,
+      "bytes": 25
+    },
+    "MFACT": {
+      "text": "that is characterized by ",
+      "freq": 680,
+      "bytes": 25
+    },
+    "MFACC": {
+      "text": " symptoms such as",
+      "freq": 670,
+      "bytes": 17
+    },
+    "MFACG": {
+      "text": "symptoms such as ",
+      "freq": 670,
+      "bytes": 17
+    },
+    "MFAGA": {
+      "text": " symptoms such as ",
+      "freq": 670,
+      "bytes": 18
+    },
+    "MFAGT": {
+      "text": " which is a",
+      "freq": 660,
+      "bytes": 11
+    },
+    "MFAGC": {
+      "text": "which is a ",
+      "freq": 660,
+      "bytes": 11
+    },
+    "MFAGG": {
+      "text": " which is a ",
+      "freq": 660,
+      "bytes": 12
+    }
+  }
+}

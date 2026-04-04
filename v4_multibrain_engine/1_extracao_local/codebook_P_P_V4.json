@@ -1,0 +1,408 @@
+{
+  "version": "4.0",
+  "domain": "P",
+  "hierarchy": "P",
+  "escape_prefix": "@@",
+  "entries": {
+    "PPAA": {
+      "text": "---------------",
+      "freq": 4554,
+      "bytes": 15
+    },
+    "PPAT": {
+      "text": "----------------",
+      "freq": 4479,
+      "bytes": 16
+    },
+    "PPAC": {
+      "text": "-----------------",
+      "freq": 4404,
+      "bytes": 17
+    },
+    "PPAG": {
+      "text": "------------------",
+      "freq": 4329,
+      "bytes": 18
+    },
+    "PPTA": {
+      "text": "-------------------",
+      "freq": 4254,
+      "bytes": 19
+    },
+    "PPTT": {
+      "text": "--------------------",
+      "freq": 4179,
+      "bytes": 20
+    },
+    "PPTC": {
+      "text": "---------------------",
+      "freq": 4104,
+      "bytes": 21
+    },
+    "PPTG": {
+      "text": "----------------------",
+      "freq": 4029,
+      "bytes": 22
+    },
+    "PPCA": {
+      "text": "-----------------------",
+      "freq": 3954,
+      "bytes": 23
+    },
+    "PPCT": {
+      "text": "------------------------",
+      "freq": 3879,
+      "bytes": 24
+    },
+    "PPCC": {
+      "text": "-------------------------",
+      "freq": 3804,
+      "bytes": 25
+    },
+    "PPCG": {
+      "text": "===============",
+      "freq": 3687,
+      "bytes": 15
+    },
+    "PPGA": {
+      "text": "================",
+      "freq": 3636,
+      "bytes": 16
+    },
+    "PPGT": {
+      "text": "=================",
+      "freq": 3585,
+      "bytes": 17
+    },
+    "PPGC": {
+      "text": "==================",
+      "freq": 3534,
+      "bytes": 18
+    },
+    "PPGG": {
+      "text": "===================",
+      "freq": 3483,
+      "bytes": 19
+    },
+    "PPTAA": {
+      "text": "('django.db.models.fields.CharField', []",
+      "freq": 45,
+      "bytes": 40
+    },
+    "PPTAT": {
+      "text": "'django.db.models.fields.CharField', [],",
+      "freq": 45,
+      "bytes": 40
+    },
+    "PPTAC": {
+      "text": "django.db.models.fields.CharField', [], ",
+      "freq": 45,
+      "bytes": 40
+    },
+    "PPTAG": {
+      "text": ".db.models.fields.CharField', [], {",
+      "freq": 45,
+      "bytes": 35
+    },
+    "PPTTA": {
+      "text": "db.models.fields.CharField', [], {'",
+      "freq": 45,
+      "bytes": 35
+    },
+    "PPTTT": {
+      "text": "': ('django.db.models.fields.CharField', ",
+      "freq": 45,
+      "bytes": 41
+    },
+    "PPTTC": {
+      "text": ": ('django.db.models.fields.CharField', [",
+      "freq": 45,
+      "bytes": 41
+    },
+    "PPTTG": {
+      "text": " ('django.db.models.fields.CharField', []",
+      "freq": 45,
+      "bytes": 41
+    },
+    "PPTCA": {
+      "text": "('django.db.models.fields.CharField', [],",
+      "freq": 45,
+      "bytes": 41
+    },
+    "PPTCT": {
+      "text": "'django.db.models.fields.CharField', [], ",
+      "freq": 45,
+      "bytes": 41
+    },
+    "PPTCC": {
+      "text": "django.db.models.fields.CharField', [], {",
+      "freq": 45,
+      "bytes": 41
+    },
+    "PPTCG": {
+      "text": ".db.models.fields.CharField', [], {'",
+      "freq": 45,
+      "bytes": 36
+    },
+    "PPTGA": {
+      "text": "': ('django.db.models.fields.CharField', [",
+      "freq": 45,
+      "bytes": 42
+    },
+    "PPTGT": {
+      "text": ": ('django.db.models.fields.CharField', []",
+      "freq": 45,
+      "bytes": 42
+    },
+    "PPTGC": {
+      "text": " ('django.db.models.fields.CharField', [],",
+      "freq": 45,
+      "bytes": 42
+    },
+    "PPTGG": {
+      "text": "('django.db.models.fields.CharField', [], ",
+      "freq": 45,
+      "bytes": 42
+    },
+    "PPCAA": {
+      "text": "'django.db.models.fields.CharField', [], {",
+      "freq": 45,
+      "bytes": 42
+    },
+    "PPCAT": {
+      "text": "django.db.models.fields.CharField', [], {'",
+      "freq": 45,
+      "bytes": 42
+    },
+    "PPCAC": {
+      "text": "': ('django.db.models.fields.CharField', []",
+      "freq": 45,
+      "bytes": 43
+    },
+    "PPCAG": {
+      "text": ": ('django.db.models.fields.CharField', [],",
+      "freq": 45,
+      "bytes": 43
+    },
+    "PPCTA": {
+      "text": " ('django.db.models.fields.CharField', [], ",
+      "freq": 45,
+      "bytes": 43
+    },
+    "PPCTT": {
+      "text": "('django.db.models.fields.CharField', [], {",
+      "freq": 45,
+      "bytes": 43
+    },
+    "PPCTC": {
+      "text": "'django.db.models.fields.CharField', [], {'",
+      "freq": 45,
+      "bytes": 43
+    },
+    "PPCTG": {
+      "text": "': ('django.db.models.fields.CharField', [],",
+      "freq": 45,
+      "bytes": 44
+    },
+    "PPCCA": {
+      "text": ": ('django.db.models.fields.CharField', [], ",
+      "freq": 45,
+      "bytes": 44
+    },
+    "PPCCT": {
+      "text": " ('django.db.models.fields.CharField', [], {",
+      "freq": 45,
+      "bytes": 44
+    },
+    "PPCCC": {
+      "text": "('django.db.models.fields.CharField', [], {'",
+      "freq": 45,
+      "bytes": 44
+    },
+    "PPCCG": {
+      "text": "': ('django.db.models.fields.CharField', [], ",
+      "freq": 45,
+      "bytes": 45
+    },
+    "PPCGA": {
+      "text": ": ('django.db.models.fields.CharField', [], {",
+      "freq": 45,
+      "bytes": 45
+    },
+    "PPCGT": {
+      "text": " ('django.db.models.fields.CharField', [], {'",
+      "freq": 45,
+      "bytes": 45
+    },
+    "PPCGC": {
+      "text": "': ('django.db.models.fields.CharField', [], {",
+      "freq": 45,
+      "bytes": 46
+    },
+    "PPCGG": {
+      "text": ": ('django.db.models.fields.CharField', [], {'",
+      "freq": 45,
+      "bytes": 46
+    },
+    "PPGAA": {
+      "text": "': ('django.db.models.fields.CharField', [], {'",
+      "freq": 45,
+      "bytes": 47
+    },
+    "PPGAT": {
+      "text": " train_test_split(X, y, test_size=0.2,",
+      "freq": 41,
+      "bytes": 38
+    },
+    "PPGAC": {
+      "text": "= train_test_split(X, y, test_size=0.2,",
+      "freq": 41,
+      "bytes": 39
+    },
+    "PPGAG": {
+      "text": " = train_test_split(X, y, test_size=0.2,",
+      "freq": 41,
+      "bytes": 40
+    },
+    "PPGTA": {
+      "text": ", X_test, y_train, y_test = train_test_split(X, y, test_size=0",
+      "freq": 71,
+      "bytes": 62
+    },
+    "PPGTT": {
+      "text": " X_test, y_train, y_test = train_test_split(X, y, test_size=0.",
+      "freq": 71,
+      "bytes": 62
+    },
+    "PPGTC": {
+      "text": "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0",
+      "freq": 71,
+      "bytes": 69
+    },
+    "PPGTG": {
+      "text": ", X_test, y_train, y_test = train_test_split(X, y, test_size=0.",
+      "freq": 71,
+      "bytes": 63
+    },
+    "PPGCA": {
+      "text": "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.",
+      "freq": 71,
+      "bytes": 70
+    },
+    "PPGCT": {
+      "text": "= train_test_split(X, y, test_size=0.2",
+      "freq": 54,
+      "bytes": 38
+    },
+    "PPGCC": {
+      "text": " = train_test_split(X, y, test_size=0.2",
+      "freq": 54,
+      "bytes": 39
+    },
+    "PPGCG": {
+      "text": "y_test = train_test_split(X, y, test_size=0.2",
+      "freq": 54,
+      "bytes": 45
+    },
+    "PPGGA": {
+      "text": " y_test = train_test_split(X, y, test_size=0.2",
+      "freq": 54,
+      "bytes": 46
+    },
+    "PPGGT": {
+      "text": ", y_test = train_test_split(X, y, test_size=0.2",
+      "freq": 54,
+      "bytes": 47
+    },
+    "PPGGC": {
+      "text": "y_train, y_test = train_test_split(X, y, test_size=0.2",
+      "freq": 54,
+      "bytes": 54
+    },
+    "PPGGG": {
+      "text": " y_train, y_test = train_test_split(X, y, test_size=0.2",
+      "freq": 54,
+      "bytes": 55
+    },
+    "PPAAA": {
+      "text": ", y_train, y_test = train_test_split(X, y, test_size=0.2",
+      "freq": 54,
+      "bytes": 56
+    },
+    "PPAAT": {
+      "text": "X_test, y_train, y_test = train_test_split(X, y, test_size=0.2",
+      "freq": 53,
+      "bytes": 62
+    },
+    "PPAAC": {
+      "text": " X_test, y_train, y_test = train_test_split(X, y, test_size=0.2",
+      "freq": 53,
+      "bytes": 63
+    },
+    "PPAAG": {
+      "text": ", X_test, y_train, y_test = train_test_split(X, y, test_size=0.2",
+      "freq": 53,
+      "bytes": 64
+    },
+    "PPATA": {
+      "text": "': ('django.db.models.fields.CharField'",
+      "freq": 45,
+      "bytes": 39
+    },
+    "PPATT": {
+      "text": ": ('django.db.models.fields.CharField',",
+      "freq": 45,
+      "bytes": 39
+    },
+    "PPATC": {
+      "text": " ('django.db.models.fields.CharField', ",
+      "freq": 45,
+      "bytes": 39
+    },
+    "PPATG": {
+      "text": "('django.db.models.fields.CharField', [",
+      "freq": 45,
+      "bytes": 39
+    },
+    "PPACA": {
+      "text": "'django.db.models.fields.CharField', []",
+      "freq": 45,
+      "bytes": 39
+    },
+    "PPACT": {
+      "text": "django.db.models.fields.CharField', [],",
+      "freq": 45,
+      "bytes": 39
+    },
+    "PPACC": {
+      "text": ".db.models.fields.CharField', [], ",
+      "freq": 45,
+      "bytes": 34
+    },
+    "PPACG": {
+      "text": "db.models.fields.CharField', [], {",
+      "freq": 45,
+      "bytes": 34
+    },
+    "PPAGA": {
+      "text": ".models.fields.CharField', [], {'",
+      "freq": 45,
+      "bytes": 33
+    },
+    "PPAGT": {
+      "text": "': ('django.db.models.fields.CharField',",
+      "freq": 45,
+      "bytes": 40
+    },
+    "PPAGC": {
+      "text": ": ('django.db.models.fields.CharField', ",
+      "freq": 45,
+      "bytes": 40
+    },
+    "PPAGG": {
+      "text": " ('django.db.models.fields.CharField', [",
+      "freq": 45,
+      "bytes": 40
+    }
+  }
+}

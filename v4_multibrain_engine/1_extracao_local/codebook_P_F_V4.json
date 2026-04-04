@@ -1,0 +1,408 @@
+{
+  "version": "4.0",
+  "domain": "P",
+  "hierarchy": "F",
+  "escape_prefix": "@@",
+  "entries": {
+    "PFAA": {
+      "text": "------",
+      "freq": 12173,
+      "bytes": 6
+    },
+    "PFAT": {
+      "text": "-------",
+      "freq": 11973,
+      "bytes": 7
+    },
+    "PFAC": {
+      "text": "--------",
+      "freq": 11773,
+      "bytes": 8
+    },
+    "PFAG": {
+      "text": "======",
+      "freq": 8659,
+      "bytes": 6
+    },
+    "PFTA": {
+      "text": "=======",
+      "freq": 8535,
+      "bytes": 7
+    },
+    "PFTT": {
+      "text": "========",
+      "freq": 8411,
+      "bytes": 8
+    },
+    "PFTC": {
+      "text": "######",
+      "freq": 7252,
+      "bytes": 6
+    },
+    "PFTG": {
+      "text": "#######",
+      "freq": 7104,
+      "bytes": 7
+    },
+    "PFCA": {
+      "text": "-----",
+      "freq": 7072,
+      "bytes": 5
+    },
+    "PFCT": {
+      "text": "########",
+      "freq": 6976,
+      "bytes": 8
+    },
+    "PFCC": {
+      "text": "---------",
+      "freq": 5004,
+      "bytes": 9
+    },
+    "PFCG": {
+      "text": "----------",
+      "freq": 4929,
+      "bytes": 10
+    },
+    "PFGA": {
+      "text": "-----------",
+      "freq": 4854,
+      "bytes": 11
+    },
+    "PFGT": {
+      "text": "------------",
+      "freq": 4779,
+      "bytes": 12
+    },
+    "PFGC": {
+      "text": "=====",
+      "freq": 4551,
+      "bytes": 5
+    },
+    "PFGG": {
+      "text": "#####",
+      "freq": 4093,
+      "bytes": 5
+    },
+    "PFTAA": {
+      "text": " word in ",
+      "freq": 310,
+      "bytes": 9
+    },
+    "PFTAT": {
+      "text": "1, 2, ",
+      "freq": 307,
+      "bytes": 6
+    },
+    "PFTAC": {
+      "text": "range(1, ",
+      "freq": 307,
+      "bytes": 9
+    },
+    "PFTAG": {
+      "text": "2, 3,",
+      "freq": 306,
+      "bytes": 5
+    },
+    "PFTTA": {
+      "text": " range(1, ",
+      "freq": 302,
+      "bytes": 10
+    },
+    "PFTTT": {
+      "text": "in range(1, ",
+      "freq": 301,
+      "bytes": 12
+    },
+    "PFTTC": {
+      "text": " in range(1, ",
+      "freq": 301,
+      "bytes": 13
+    },
+    "PFTTG": {
+      "text": "list of ",
+      "freq": 300,
+      "bytes": 8
+    },
+    "PFTCA": {
+      "text": " for x in",
+      "freq": 298,
+      "bytes": 9
+    },
+    "PFTCT": {
+      "text": " for x in ",
+      "freq": 298,
+      "bytes": 10
+    },
+    "PFTCC": {
+      "text": "1, 2,",
+      "freq": 295,
+      "bytes": 5
+    },
+    "PFTCG": {
+      "text": " = [1,",
+      "freq": 294,
+      "bytes": 6
+    },
+    "PFTGA": {
+      "text": "'__main__':",
+      "freq": 291,
+      "bytes": 11
+    },
+    "PFTGT": {
+      "text": "= [1,",
+      "freq": 291,
+      "bytes": 5
+    },
+    "PFTGC": {
+      "text": " list of",
+      "freq": 290,
+      "bytes": 8
+    },
+    "PFTGG": {
+      "text": " list of ",
+      "freq": 290,
+      "bytes": 9
+    },
+    "PFCAA": {
+      "text": "= '__main__",
+      "freq": 289,
+      "bytes": 11
+    },
+    "PFCAT": {
+      "text": " '__main__'",
+      "freq": 289,
+      "bytes": 11
+    },
+    "PFCAC": {
+      "text": "= '__main__'",
+      "freq": 289,
+      "bytes": 12
+    },
+    "PFCAG": {
+      "text": "arr[i]",
+      "freq": 289,
+      "bytes": 6
+    },
+    "PFCTA": {
+      "text": "== '__main__",
+      "freq": 288,
+      "bytes": 12
+    },
+    "PFCTT": {
+      "text": "__name__ == '",
+      "freq": 288,
+      "bytes": 13
+    },
+    "PFCTC": {
+      "text": " == '__main__",
+      "freq": 288,
+      "bytes": 13
+    },
+    "PFCTG": {
+      "text": "== '__main__'",
+      "freq": 288,
+      "bytes": 13
+    },
+    "PFCCA": {
+      "text": " __name__ == '",
+      "freq": 288,
+      "bytes": 14
+    },
+    "PFCCT": {
+      "text": "__name__ == '__main__",
+      "freq": 288,
+      "bytes": 21
+    },
+    "PFCCC": {
+      "text": " == '__main__'",
+      "freq": 288,
+      "bytes": 14
+    },
+    "PFCCG": {
+      "text": "if __name__ == '",
+      "freq": 288,
+      "bytes": 16
+    },
+    "PFCGA": {
+      "text": " __name__ == '__main__",
+      "freq": 288,
+      "bytes": 22
+    },
+    "PFCGT": {
+      "text": "__name__ == '__main__'",
+      "freq": 288,
+      "bytes": 22
+    },
+    "PFCGC": {
+      "text": "for x ",
+      "freq": 288,
+      "bytes": 6
+    },
+    "PFCGG": {
+      "text": "for x in",
+      "freq": 288,
+      "bytes": 8
+    },
+    "PFGAA": {
+      "text": " = int",
+      "freq": 288,
+      "bytes": 6
+    },
+    "PFGAT": {
+      "text": " '__main__':",
+      "freq": 287,
+      "bytes": 12
+    },
+    "PFGAC": {
+      "text": "= '__main__':",
+      "freq": 287,
+      "bytes": 13
+    },
+    "PFGAG": {
+      "text": "== '__main__':",
+      "freq": 287,
+      "bytes": 14
+    },
+    "PFGTA": {
+      "text": "in range(1,",
+      "freq": 353,
+      "bytes": 11
+    },
+    "PFGTT": {
+      "text": " in range(1,",
+      "freq": 353,
+      "bytes": 12
+    },
+    "PFGTC": {
+      "text": " range(1,",
+      "freq": 352,
+      "bytes": 9
+    },
+    "PFGTG": {
+      "text": "for x in ",
+      "freq": 348,
+      "bytes": 9
+    },
+    "PFGCA": {
+      "text": " for i in range",
+      "freq": 347,
+      "bytes": 15
+    },
+    "PFGCT": {
+      "text": "= requests.get(",
+      "freq": 346,
+      "bytes": 15
+    },
+    "PFGCC": {
+      "text": " = requests.get",
+      "freq": 344,
+      "bytes": 15
+    },
+    "PFGCG": {
+      "text": " = requests.get(",
+      "freq": 344,
+      "bytes": 16
+    },
+    "PFGGA": {
+      "text": "= requests.",
+      "freq": 338,
+      "bytes": 11
+    },
+    "PFGGT": {
+      "text": " = requests",
+      "freq": 336,
+      "bytes": 11
+    },
+    "PFGGC": {
+      "text": " = requests.",
+      "freq": 336,
+      "bytes": 12
+    },
+    "PFGGG": {
+      "text": "        return self",
+      "freq": 334,
+      "bytes": 19
+    },
+    "PFAAA": {
+      "text": "        return self.",
+      "freq": 334,
+      "bytes": 20
+    },
+    "PFAAT": {
+      "text": "if len(",
+      "freq": 328,
+      "bytes": 7
+    },
+    "PFAAC": {
+      "text": "not in ",
+      "freq": 327,
+      "bytes": 7
+    },
+    "PFAAG": {
+      "text": " not in",
+      "freq": 326,
+      "bytes": 7
+    },
+    "PFATA": {
+      "text": " not in ",
+      "freq": 326,
+      "bytes": 8
+    },
+    "PFATT": {
+      "text": "len(arr)",
+      "freq": 326,
+      "bytes": 8
+    },
+    "PFATC": {
+      "text": "= len(",
+      "freq": 324,
+      "bytes": 6
+    },
+    "PFATG": {
+      "text": " requests.get",
+      "freq": 322,
+      "bytes": 13
+    },
+    "PFACA": {
+      "text": "requests.get(",
+      "freq": 322,
+      "bytes": 13
+    },
+    "PFACT": {
+      "text": " requests.get(",
+      "freq": 322,
+      "bytes": 14
+    },
+    "PFACC": {
+      "text": "= requests.get",
+      "freq": 321,
+      "bytes": 14
+    },
+    "PFACG": {
+      "text": ", len(",
+      "freq": 319,
+      "bytes": 6
+    },
+    "PFAGA": {
+      "text": "2, 3, ",
+      "freq": 318,
+      "bytes": 6
+    },
+    "PFAGT": {
+      "text": "= int(",
+      "freq": 315,
+      "bytes": 6
+    },
+    "PFAGC": {
+      "text": "word in ",
+      "freq": 312,
+      "bytes": 8
+    },
+    "PFAGG": {
+      "text": " word in",
+      "freq": 310,
+      "bytes": 8
+    }
+  }
+}

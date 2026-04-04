@@ -1,0 +1,408 @@
+{
+  "version": "4.0",
+  "domain": "P",
+  "hierarchy": "W",
+  "escape_prefix": "@@",
+  "entries": {
+    "PWAA": {
+      "text": "return",
+      "freq": 8421,
+      "bytes": 6
+    },
+    "PWAT": {
+      "text": "import",
+      "freq": 5279,
+      "bytes": 6
+    },
+    "PWAC": {
+      "text": "result",
+      "freq": 2509,
+      "bytes": 6
+    },
+    "PWAG": {
+      "text": "string",
+      "freq": 2203,
+      "bytes": 6
+    },
+    "PWTA": {
+      "text": "append",
+      "freq": 1621,
+      "bytes": 6
+    },
+    "PWTT": {
+      "text": "number",
+      "freq": 1192,
+      "bytes": 6
+    },
+    "PWTC": {
+      "text": "random",
+      "freq": 1141,
+      "bytes": 6
+    },
+    "PWTG": {
+      "text": "numbers",
+      "freq": 913,
+      "bytes": 7
+    },
+    "PWCA": {
+      "text": "__init__",
+      "freq": 806,
+      "bytes": 8
+    },
+    "PWCT": {
+      "text": "Create",
+      "freq": 748,
+      "bytes": 6
+    },
+    "PWCC": {
+      "text": "sentence",
+      "freq": 672,
+      "bytes": 8
+    },
+    "PWCG": {
+      "text": "requests",
+      "freq": 664,
+      "bytes": 8
+    },
+    "PWGA": {
+      "text": "response",
+      "freq": 654,
+      "bytes": 8
+    },
+    "PWGT": {
+      "text": "sklearn",
+      "freq": 614,
+      "bytes": 7
+    },
+    "PWGC": {
+      "text": "Output",
+      "freq": 612,
+      "bytes": 6
+    },
+    "PWGG": {
+      "text": "length",
+      "freq": 599,
+      "bytes": 6
+    },
+    "PWTAA": {
+      "text": "digits",
+      "freq": 131,
+      "bytes": 6
+    },
+    "PWTAT": {
+      "text": "player",
+      "freq": 131,
+      "bytes": 6
+    },
+    "PWTAC": {
+      "text": "test_size",
+      "freq": 131,
+      "bytes": 9
+    },
+    "PWTAG": {
+      "text": "driver",
+      "freq": 130,
+      "bytes": 6
+    },
+    "PWTTA": {
+      "text": "training",
+      "freq": 130,
+      "bytes": 8
+    },
+    "PWTTT": {
+      "text": "status",
+      "freq": 129,
+      "bytes": 6
+    },
+    "PWTTC": {
+      "text": "frequency",
+      "freq": 127,
+      "bytes": 9
+    },
+    "PWTTG": {
+      "text": "between",
+      "freq": 127,
+      "bytes": 7
+    },
+    "PWTCA": {
+      "text": "max_val",
+      "freq": 126,
+      "bytes": 7
+    },
+    "PWTCT": {
+      "text": "expression",
+      "freq": 126,
+      "bytes": 10
+    },
+    "PWTCC": {
+      "text": "second",
+      "freq": 126,
+      "bytes": 6
+    },
+    "PWTCG": {
+      "text": "new_list",
+      "freq": 125,
+      "bytes": 8
+    },
+    "PWTGA": {
+      "text": "points",
+      "freq": 124,
+      "bytes": 6
+    },
+    "PWTGT": {
+      "text": "sorted_list",
+      "freq": 123,
+      "bytes": 11
+    },
+    "PWTGC": {
+      "text": "counts",
+      "freq": 122,
+      "bytes": 6
+    },
+    "PWTGG": {
+      "text": "Number",
+      "freq": 122,
+      "bytes": 6
+    },
+    "PWCAA": {
+      "text": "Sequential",
+      "freq": 121,
+      "bytes": 10
+    },
+    "PWCAT": {
+      "text": "LinearRegression",
+      "freq": 121,
+      "bytes": 16
+    },
+    "PWCAC": {
+      "text": "weights",
+      "freq": 120,
+      "bytes": 7
+    },
+    "PWCAG": {
+      "text": "prices",
+      "freq": 120,
+      "bytes": 6
+    },
+    "PWCTA": {
+      "text": "libraries",
+      "freq": 119,
+      "bytes": 9
+    },
+    "PWCTT": {
+      "text": "max_num",
+      "freq": 118,
+      "bytes": 7
+    },
+    "PWCTC": {
+      "text": "vowels",
+      "freq": 117,
+      "bytes": 6
+    },
+    "PWCTG": {
+      "text": "salary",
+      "freq": 117,
+      "bytes": 6
+    },
+    "PWCCA": {
+      "text": "columns",
+      "freq": 116,
+      "bytes": 7
+    },
+    "PWCCT": {
+      "text": "sqlite3",
+      "freq": 116,
+      "bytes": 7
+    },
+    "PWCCC": {
+      "text": "distance",
+      "freq": 116,
+      "bytes": 8
+    },
+    "PWCCG": {
+      "text": "commit",
+      "freq": 115,
+      "bytes": 6
+    },
+    "PWCGA": {
+      "text": "should",
+      "freq": 115,
+      "bytes": 6
+    },
+    "PWCGT": {
+      "text": "article",
+      "freq": 115,
+      "bytes": 7
+    },
+    "PWCGC": {
+      "text": "input_string",
+      "freq": 113,
+      "bytes": 12
+    },
+    "PWCGG": {
+      "text": "matplotlib",
+      "freq": 113,
+      "bytes": 10
+    },
+    "PWGAA": {
+      "text": "collections",
+      "freq": 113,
+      "bytes": 11
+    },
+    "PWGAT": {
+      "text": "binary",
+      "freq": 112,
+      "bytes": 6
+    },
+    "PWGAC": {
+      "text": "enumerate",
+      "freq": 111,
+      "bytes": 9
+    },
+    "PWGAG": {
+      "text": "required",
+      "freq": 111,
+      "bytes": 8
+    },
+    "PWGTA": {
+      "text": "sequence",
+      "freq": 152,
+      "bytes": 8
+    },
+    "PWGTT": {
+      "text": "remove",
+      "freq": 151,
+      "bytes": 6
+    },
+    "PWGTC": {
+      "text": "Iterate",
+      "freq": 150,
+      "bytes": 7
+    },
+    "PWGTG": {
+      "text": "Generate",
+      "freq": 148,
+      "bytes": 8
+    },
+    "PWGCA": {
+      "text": "maximum",
+      "freq": 148,
+      "bytes": 7
+    },
+    "PWGCT": {
+      "text": "pattern",
+      "freq": 148,
+      "bytes": 7
+    },
+    "PWGCC": {
+      "text": "client",
+      "freq": 148,
+      "bytes": 6
+    },
+    "PWGCG": {
+      "text": "reverse",
+      "freq": 147,
+      "bytes": 7
+    },
+    "PWGGA": {
+      "text": "average",
+      "freq": 144,
+      "bytes": 7
+    },
+    "PWGGT": {
+      "text": "string1",
+      "freq": 143,
+      "bytes": 7
+    },
+    "PWGGC": {
+      "text": "connect",
+      "freq": 141,
+      "bytes": 7
+    },
+    "PWGGG": {
+      "text": "tokens",
+      "freq": 141,
+      "bytes": 6
+    },
+    "PWAAA": {
+      "text": "module",
+      "freq": 141,
+      "bytes": 6
+    },
+    "PWAAT": {
+      "text": "update",
+      "freq": 141,
+      "bytes": 6
+    },
+    "PWAAC": {
+      "text": "compile",
+      "freq": 140,
+      "bytes": 7
+    },
+    "PWAAG": {
+      "text": "string2",
+      "freq": 139,
+      "bytes": 7
+    },
+    "PWATA": {
+      "text": "sample",
+      "freq": 138,
+      "bytes": 6
+    },
+    "PWATT": {
+      "text": "letter",
+      "freq": 137,
+      "bytes": 6
+    },
+    "PWATC": {
+      "text": "language",
+      "freq": 137,
+      "bytes": 8
+    },
+    "PWATG": {
+      "text": "model_selection",
+      "freq": 136,
+      "bytes": 15
+    },
+    "PWACA": {
+      "text": "action",
+      "freq": 135,
+      "bytes": 6
+    },
+    "PWACT": {
+      "text": "scores",
+      "freq": 135,
+      "bytes": 6
+    },
+    "PWACC": {
+      "text": "metrics",
+      "freq": 134,
+      "bytes": 7
+    },
+    "PWACG": {
+      "text": "random_state",
+      "freq": 134,
+      "bytes": 12
+    },
+    "PWAGA": {
+      "text": "define",
+      "freq": 134,
+      "bytes": 6
+    },
+    "PWAGT": {
+      "text": "License",
+      "freq": 134,
+      "bytes": 7
+    },
+    "PWAGC": {
+      "text": "prediction",
+      "freq": 133,
+      "bytes": 10
+    },
+    "PWAGG": {
+      "text": "max_length",
+      "freq": 132,
+      "bytes": 10
+    }
+  }
+}

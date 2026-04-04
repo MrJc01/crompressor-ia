@@ -1,0 +1,408 @@
+{
+  "version": "4.0",
+  "domain": "M",
+  "hierarchy": "P",
+  "escape_prefix": "@@",
+  "entries": {
+    "MPAA": {
+      "text": " can be caused by a variety of ",
+      "freq": 130,
+      "bytes": 31
+    },
+    "MPAT": {
+      "text": "can be caused by a variety of factors",
+      "freq": 112,
+      "bytes": 37
+    },
+    "MPAC": {
+      "text": " can be caused by a variety of factors",
+      "freq": 112,
+      "bytes": 38
+    },
+    "MPAG": {
+      "text": " be caused by a variety of factors,",
+      "freq": 107,
+      "bytes": 35
+    },
+    "MPTA": {
+      "text": "be caused by a variety of factors, ",
+      "freq": 107,
+      "bytes": 35
+    },
+    "MPTT": {
+      "text": "can be caused by a variety of factors,",
+      "freq": 107,
+      "bytes": 38
+    },
+    "MPTC": {
+      "text": " be caused by a variety of factors, ",
+      "freq": 107,
+      "bytes": 36
+    },
+    "MPTG": {
+      "text": " can be caused by a variety of factors,",
+      "freq": 107,
+      "bytes": 39
+    },
+    "MPCA": {
+      "text": "can be caused by a variety of factors, ",
+      "freq": 107,
+      "bytes": 39
+    },
+    "MPCT": {
+      "text": " can be caused by a variety of factors, ",
+      "freq": 107,
+      "bytes": 40
+    },
+    "MPCC": {
+      "text": " caused by a variety of factors, including",
+      "freq": 104,
+      "bytes": 42
+    },
+    "MPCG": {
+      "text": "caused by a variety of factors, including ",
+      "freq": 104,
+      "bytes": 42
+    },
+    "MPGA": {
+      "text": "be caused by a variety of factors, including",
+      "freq": 104,
+      "bytes": 44
+    },
+    "MPGT": {
+      "text": " caused by a variety of factors, including ",
+      "freq": 104,
+      "bytes": 43
+    },
+    "MPGC": {
+      "text": " be caused by a variety of factors, including",
+      "freq": 104,
+      "bytes": 45
+    },
+    "MPGG": {
+      "text": "be caused by a variety of factors, including ",
+      "freq": 104,
+      "bytes": 45
+    },
+    "MPTAA": {
+      "text": " It is important to seek medical attention if",
+      "freq": 22,
+      "bytes": 45
+    },
+    "MPTAT": {
+      "text": "It is important to seek medical attention if ",
+      "freq": 22,
+      "bytes": 45
+    },
+    "MPTAC": {
+      "text": ". It is important to seek medical attention if",
+      "freq": 22,
+      "bytes": 46
+    },
+    "MPTAG": {
+      "text": " It is important to seek medical attention if ",
+      "freq": 22,
+      "bytes": 46
+    },
+    "MPTTA": {
+      "text": ". It is important to seek medical attention if ",
+      "freq": 22,
+      "bytes": 47
+    },
+    "MPTTT": {
+      "text": " it is important to seek medical attention ",
+      "freq": 22,
+      "bytes": 43
+    },
+    "MPTTC": {
+      "text": " a range of symptoms, including fever, ",
+      "freq": 22,
+      "bytes": 39
+    },
+    "MPTTG": {
+      "text": " lymph nodes are an important site for ",
+      "freq": 22,
+      "bytes": 39
+    },
+    "MPTCA": {
+      "text": "lymph nodes are an important site for the",
+      "freq": 22,
+      "bytes": 41
+    },
+    "MPTCT": {
+      "text": " nodes are an important site for the ",
+      "freq": 22,
+      "bytes": 37
+    },
+    "MPTCC": {
+      "text": "nodes are an important site for the detection",
+      "freq": 22,
+      "bytes": 45
+    },
+    "MPTCG": {
+      "text": " are an important site for the detection ",
+      "freq": 22,
+      "bytes": 41
+    },
+    "MPTGA": {
+      "text": "are an important site for the detection and",
+      "freq": 22,
+      "bytes": 43
+    },
+    "MPTGT": {
+      "text": " an important site for the detection and ",
+      "freq": 22,
+      "bytes": 41
+    },
+    "MPTGC": {
+      "text": "an important site for the detection and spread",
+      "freq": 22,
+      "bytes": 46
+    },
+    "MPTGG": {
+      "text": " important site for the detection and spread ",
+      "freq": 22,
+      "bytes": 45
+    },
+    "MPCAA": {
+      "text": "important site for the detection and spread of",
+      "freq": 22,
+      "bytes": 46
+    },
+    "MPCAT": {
+      "text": " site for the detection and spread of ",
+      "freq": 22,
+      "bytes": 38
+    },
+    "MPCAC": {
+      "text": "site for the detection and spread of cancer",
+      "freq": 22,
+      "bytes": 43
+    },
+    "MPCAG": {
+      "text": " for the detection and spread of cancer ",
+      "freq": 22,
+      "bytes": 40
+    },
+    "MPCTA": {
+      "text": "for the detection and spread of cancer cells",
+      "freq": 22,
+      "bytes": 44
+    },
+    "MPCTT": {
+      "text": " the detection and spread of cancer cells ",
+      "freq": 22,
+      "bytes": 42
+    },
+    "MPCTC": {
+      "text": "the detection and spread of cancer cells from",
+      "freq": 22,
+      "bytes": 45
+    },
+    "MPCTG": {
+      "text": " detection and spread of cancer cells from ",
+      "freq": 22,
+      "bytes": 43
+    },
+    "MPCCA": {
+      "text": "detection and spread of cancer cells from the",
+      "freq": 22,
+      "bytes": 45
+    },
+    "MPCCT": {
+      "text": " and spread of cancer cells from the ",
+      "freq": 22,
+      "bytes": 37
+    },
+    "MPCCC": {
+      "text": " lymph nodes are an important site for the",
+      "freq": 22,
+      "bytes": 42
+    },
+    "MPCCG": {
+      "text": "lymph nodes are an important site for the ",
+      "freq": 22,
+      "bytes": 42
+    },
+    "MPCGA": {
+      "text": " nodes are an important site for the detection",
+      "freq": 22,
+      "bytes": 46
+    },
+    "MPCGT": {
+      "text": "nodes are an important site for the detection ",
+      "freq": 22,
+      "bytes": 46
+    },
+    "MPCGC": {
+      "text": " are an important site for the detection and",
+      "freq": 22,
+      "bytes": 44
+    },
+    "MPCGG": {
+      "text": "are an important site for the detection and ",
+      "freq": 22,
+      "bytes": 44
+    },
+    "MPGAA": {
+      "text": " an important site for the detection and spread",
+      "freq": 22,
+      "bytes": 47
+    },
+    "MPGAT": {
+      "text": "an important site for the detection and spread ",
+      "freq": 22,
+      "bytes": 47
+    },
+    "MPGAC": {
+      "text": " important site for the detection and spread of",
+      "freq": 22,
+      "bytes": 47
+    },
+    "MPGAG": {
+      "text": "important site for the detection and spread of ",
+      "freq": 22,
+      "bytes": 47
+    },
+    "MPGTA": {
+      "text": " is not fully understood, but it is thought to ",
+      "freq": 23,
+      "bytes": 47
+    },
+    "MPGTT": {
+      "text": "is not fully understood, but it is thought to be",
+      "freq": 23,
+      "bytes": 48
+    },
+    "MPGTC": {
+      "text": "not fully understood, but it is thought to be related",
+      "freq": 23,
+      "bytes": 53
+    },
+    "MPGTG": {
+      "text": " fully understood, but it is thought to be related ",
+      "freq": 23,
+      "bytes": 51
+    },
+    "MPGCA": {
+      "text": "fully understood, but it is thought to be related to",
+      "freq": 23,
+      "bytes": 52
+    },
+    "MPGCT": {
+      "text": " is not fully understood, but it is thought to be",
+      "freq": 23,
+      "bytes": 49
+    },
+    "MPGCC": {
+      "text": "is not fully understood, but it is thought to be ",
+      "freq": 23,
+      "bytes": 49
+    },
+    "MPGCG": {
+      "text": " not fully understood, but it is thought to be related",
+      "freq": 23,
+      "bytes": 54
+    },
+    "MPGGA": {
+      "text": "not fully understood, but it is thought to be related ",
+      "freq": 23,
+      "bytes": 54
+    },
+    "MPGGT": {
+      "text": " fully understood, but it is thought to be related to",
+      "freq": 23,
+      "bytes": 53
+    },
+    "MPGGC": {
+      "text": "fully understood, but it is thought to be related to ",
+      "freq": 23,
+      "bytes": 53
+    },
+    "MPGGG": {
+      "text": " is not fully understood, but it is thought to be ",
+      "freq": 23,
+      "bytes": 50
+    },
+    "MPAAA": {
+      "text": " not fully understood, but it is thought to be related ",
+      "freq": 23,
+      "bytes": 55
+    },
+    "MPAAT": {
+      "text": "not fully understood, but it is thought to be related to",
+      "freq": 23,
+      "bytes": 56
+    },
+    "MPAAC": {
+      "text": " fully understood, but it is thought to be related to ",
+      "freq": 23,
+      "bytes": 54
+    },
+    "MPAAG": {
+      "text": " not fully understood, but it is thought to be related to",
+      "freq": 23,
+      "bytes": 57
+    },
+    "MPATA": {
+      "text": "not fully understood, but it is thought to be related to ",
+      "freq": 23,
+      "bytes": 57
+    },
+    "MPATT": {
+      "text": " not fully understood, but it is thought to be related to ",
+      "freq": 23,
+      "bytes": 58
+    },
+    "MPATC": {
+      "text": ". However, it is important to note ",
+      "freq": 23,
+      "bytes": 35
+    },
+    "MPATG": {
+      "text": " However, it is important to note that",
+      "freq": 23,
+      "bytes": 38
+    },
+    "MPACA": {
+      "text": ". However, it is important to note that",
+      "freq": 23,
+      "bytes": 39
+    },
+    "MPACT": {
+      "text": " However, it is important to note that ",
+      "freq": 23,
+      "bytes": 39
+    },
+    "MPACC": {
+      "text": ". However, it is important to note that ",
+      "freq": 23,
+      "bytes": 40
+    },
+    "MPACG": {
+      "text": "syndrome is a rare genetic disorder that affects",
+      "freq": 22,
+      "bytes": 48
+    },
+    "MPAGA": {
+      "text": " syndrome is a rare genetic disorder that affects",
+      "freq": 22,
+      "bytes": 49
+    },
+    "MPAGT": {
+      "text": "syndrome is a rare genetic disorder that affects ",
+      "freq": 22,
+      "bytes": 49
+    },
+    "MPAGC": {
+      "text": " syndrome is a rare genetic disorder that affects ",
+      "freq": 22,
+      "bytes": 50
+    },
+    "MPAGG": {
+      "text": "It is important to seek medical attention if",
+      "freq": 22,
+      "bytes": 44
+    }
+  }
+}
