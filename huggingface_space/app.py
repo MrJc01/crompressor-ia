@@ -10,6 +10,7 @@ import multiprocessing
 import time
 import json
 import re
+import os
 
 # ====================================================================
 # 1. DOWNLOAD DO MODELO E CODEBOOK
