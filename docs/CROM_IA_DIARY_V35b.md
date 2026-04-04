@@ -29,6 +29,40 @@ Esse "erro perfeito" nos provou matematicamente o conceito empírico de que *Cat
 A partir da V4.0, o **CROM-IA deixará de ser um modelo único** e passará a ser uma matriz Orchestrator usando Modelos Especialistas (Brain Plugins com Adaptadores LoRA dinâmicos e especificação formal de sintaxe).
 
 ---
+
+## 🚀 Como Fazer Funcionar (How to Run)
+
+Como o modelo foi intensivamente treinado em cima de **117 mil conversas**, ele é **altamente sensível ao formato do prompt**. Se você não usar o formato correto, ele pode alucinar ou gerar loops infinitos.
+
+**O formato obrigatório para inference (Alpaca-style):**
+```text
+Abaixo está uma instrução CROM-IA.
+
+### Instruction:
+[SUA PERGUNTA OU COMANDO AQUI]
+
+### Input:
+
+
+### Response:
+```
+
+### Exemplo usando `llama.cpp` (Modo CLI Interativo)
+Para evitar que o contexto estoure ou que a penalidade de repetição crie loops no código, certifique-se de configurar a repetição para no máximo `1.15` e aumente a janela de contexto `-c`:
+
+```bash
+./llama-cli -m Qwen2.5-1.5B-Instruct.Q4_K_M-v3.5b_117k.gguf \
+    -c 2048 \
+    -n 1024 \
+    --temp 0.1 \
+    --repeat_penalty 1.15 \
+    --in-prefix "\n\n### Instruction:\n" \
+    --in-suffix "\n\n### Response:\n" \
+    --prompt "Abaixo está uma instrução CROM-IA." \
+    --interactive
+```
+
+---
 **Data de Compilação:** 04 de Abril de 2026
 **Treinamento:** NVIDIA A100 (1h27) / Unsloth 
 **Loss Final:** 1.173599
