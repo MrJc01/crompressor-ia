@@ -9,39 +9,35 @@ from llama_cpp import Llama
 import multiprocessing
 import time
 import json
-import os
 import re
 
 # ====================================================================
 # 1. DOWNLOAD DO MODELO E CODEBOOK
 # ====================================================================
-print("[CROM-IA] Baixando modelo GGUF V3.5b (117k amostras)...")
+print("[CROM-IA] Baixando modelo GGUF V3.5b...")
 model_path = hf_hub_download(
     repo_id="CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic",
     filename="Qwen2.5-1.5B-Instruct.Q4_K_M-v3.5b_117k.gguf"
 )
-
 codebook_path = hf_hub_download(
     repo_id="CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic",
     filename="logs_and_codebooks/bugged_codebook_v3_recipes.json"
 )
 
 # ====================================================================
-# 2. CARREGAR CODEBOOK DNA (RAG O(1) Injector)
+# 2. CARREGAR CODEBOOK DNA
 # ====================================================================
-print("[CROM-IA] Carregando Codebook DNA V3...")
 with open(codebook_path, "r", encoding="utf-8") as f:
     codebook_data = json.load(f)
 dna_entries = codebook_data.get("entries", {})
-total_codebook_bytes = sum(e["bytes"] for e in dna_entries.values())
-print(f"[CROM-IA] {len(dna_entries)} Ponteiros DNA carregados ({total_codebook_bytes} bytes)")
+total_bytes = sum(e["bytes"] for e in dna_entries.values())
+print(f"[CROM-IA] {len(dna_entries)} Ponteiros DNA ({total_bytes} bytes)")
 
 # ====================================================================
-# 3. INSTANCIAR LLM COM FORCA MAXIMA
+# 3. INSTANCIAR LLM
 # ====================================================================
 cores = max(multiprocessing.cpu_count(), 2)
-print(f"[CROM-IA] Alocando {cores} threads | n_batch=512 | n_ctx=4096")
-
+print(f"[CROM-IA] {cores} threads | n_batch=512 | n_ctx=4096")
 llm = Llama(
     model_path=model_path,
     n_ctx=4096,
@@ -51,28 +47,26 @@ llm = Llama(
     use_mmap=True,
     verbose=False
 )
-print("[CROM-IA] Motor de Inferencia Pronto!")
+print("[CROM-IA] Pronto!")
 
 # ====================================================================
-# 4. RAG INJECTOR DNA (State Machine O(1))
+# 4. RAG INJECTOR DNA
 # ====================================================================
 def rag_inject(text):
-    """Intercepta ponteiros @@XX e expande via Codebook DNA."""
     hits = 0
-    bytes_saved = 0
+    saved = 0
     result = []
     i = 0
     while i < len(text):
         if text[i] == '@' and i + 1 < len(text) and text[i + 1] == '@':
             found = False
-            for keylen in [4, 3, 2]:
-                end = i + 2 + keylen
+            for kl in [4, 3, 2]:
+                end = i + 2 + kl
                 if end <= len(text):
                     key = text[i + 2:end]
                     if key in dna_entries:
-                        expanded = dna_entries[key]["text"]
-                        result.append(expanded)
-                        bytes_saved += dna_entries[key]["bytes"]
+                        result.append(dna_entries[key]["text"])
+                        saved += dna_entries[key]["bytes"]
                         hits += 1
                         i = end
                         found = True
@@ -83,297 +77,174 @@ def rag_inject(text):
         else:
             result.append(text[i])
             i += 1
-    return "".join(result), hits, bytes_saved
+    return "".join(result), hits, saved
 
 # ====================================================================
-# 5. FORMATADOR DE PROMPT (Alpaca Rigoroso)
+# 5. FORMATADOR DE PROMPT
 # ====================================================================
+def safe_str(val):
+    if isinstance(val, list):
+        return " ".join(str(v) for v in val)
+    if val is None:
+        return ""
+    return str(val)
+
+def clean_metrics(text):
+    text = safe_str(text)
+    return re.sub(r'\n*---\n.*$', '', text, flags=re.DOTALL).strip()
+
 def formatar_prompt(message, history):
     prompt = "Abaixo esta uma instrucao CROM-IA.\n\n"
     for entry in history:
         if isinstance(entry, dict):
             role = entry.get("role", "")
-            content = entry.get("content", "")
-            content = re.sub(r'\n*---\n.*$', '', content, flags=re.DOTALL)
+            content = clean_metrics(entry.get("content", ""))
             if role == "user":
                 prompt += f"### Instruction:\n{content}\n\n### Input:\n\n\n"
             elif role == "assistant":
                 prompt += f"### Response:\n{content}\n\n"
         elif isinstance(entry, (list, tuple)) and len(entry) >= 2:
-            clean = re.sub(r'\n*---\n.*$', '', str(entry[1]), flags=re.DOTALL)
-            prompt += f"### Instruction:\n{entry[0]}\n\n### Input:\n\n\n### Response:\n{clean}\n\n"
+            user_msg = safe_str(entry[0])
+            bot_msg = clean_metrics(entry[1])
+            prompt += f"### Instruction:\n{user_msg}\n\n### Input:\n\n\n### Response:\n{bot_msg}\n\n"
     prompt += f"### Instruction:\n{message}\n\n### Input:\n\n\n### Response:\n"
     return prompt
 
 # ====================================================================
-# 6. GERADOR DE RESPOSTA (Streaming + RAG + Metricas)
+# 6. GERADOR DE RESPOSTA
 # ====================================================================
 def generate(message, history, temperature, repeat_penalty, max_tokens):
     prompt = formatar_prompt(message, history)
-    prompt_len = len(prompt)
-
-    stop_seqs = [
-        "### Instruction:", "### Input:",
-        "<|endoftext|>", "<|im_end|>", "</s>",
-        "Abaixo esta", "\n\n\n\n\n"
-    ]
 
     stream = llm(
         prompt,
         max_tokens=int(max_tokens),
         temperature=temperature,
         repeat_penalty=repeat_penalty,
-        stop=stop_seqs,
+        stop=["### Instruction:", "### Input:", "<|endoftext|>", "<|im_end|>", "</s>", "Abaixo esta", "#", "\n\n\n\n\n"],
         stream=True
     )
 
     resposta = ""
-    start_time = time.time()
-    token_count = 0
+    t0 = time.time()
+    toks = 0
 
     for chunk in stream:
         token = chunk["choices"][0]["text"]
         resposta += token
-        token_count += 1
+        toks += 1
         yield resposta
 
-    elapsed = time.time() - start_time
-    tps = token_count / elapsed if elapsed > 0 else 0
+    dt = time.time() - t0
+    tps = toks / dt if dt > 0 else 0
 
-    # Aplicar RAG Injector DNA
-    resposta_rag, hits, bytes_saved = rag_inject(resposta)
+    resposta_rag, hits, saved = rag_inject(resposta)
 
-    # Metricas
-    metrics = f"\n\n---\n"
-    metrics += f"**🧬 CROM-IA V3.5b** | "
-    metrics += f"⚡ {tps:.1f} t/s | "
-    metrics += f"📝 {token_count} tokens | "
-    metrics += f"⏱️ {elapsed:.1f}s | "
-    metrics += f"🧵 {cores} threads"
-    if hits > 0:
-        metrics += f" | 🔬 RAG: {hits} hits ({bytes_saved} bytes expandidos)"
+    m = f"\n\n---\n**🧬 CROM-IA** ⚡ {tps:.1f} t/s · 📝 {toks} tokens · ⏱️ {dt:.1f}s · 🧵 {cores} threads"
 
     if hits > 0:
-        yield resposta_rag + metrics
+        m += f" · 🔬 RAG: {hits} hits ({saved}B expandidos)"
+        final = resposta_rag
     else:
-        yield resposta + metrics
+        final = resposta
+
+    yield final + m
 
 # ====================================================================
-# 7. INTERFACE VISUAL PREMIUM (Gradio)
+# 7. INTERFACE VISUAL
 # ====================================================================
-GITHUB_URL = "https://github.com/MrJc01/crompressor-ia"
-HF_MODEL_URL = "https://huggingface.co/CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic"
-HF_PAPER_URL = "https://huggingface.co/spaces/CromIA/Rosa-Chat-V3.5"
+GITHUB = "https://github.com/MrJc01/crompressor-ia"
+HF_MODEL = "https://huggingface.co/CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic"
 
-custom_css = """
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-
-:root {
-    --bg-primary: #0a0f1a;
-    --bg-secondary: #111827;
-    --bg-card: #1e293b;
-    --accent-blue: #38bdf8;
-    --accent-cyan: #22d3ee;
-    --accent-green: #34d399;
-    --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --border-color: #334155;
-    --glow: 0 0 20px rgba(56, 189, 248, 0.15);
-}
-
+CSS = """
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap');
+* { box-sizing: border-box; }
 body, .gradio-container {
-    background: var(--bg-primary) !important;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-    color: var(--text-primary) !important;
+    background: #0a0f1a !important;
+    font-family: 'Inter', sans-serif !important;
+    color: #f1f5f9 !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
 }
-
-.gradio-container {
-    max-width: 900px !important;
-    margin: 0 auto !important;
+.gradio-container { max-width: 900px !important; margin: 0 auto !important; overflow: visible !important; }
+.hdr {
+    background: linear-gradient(135deg, #0f172a, #1e3a5f, #0f172a);
+    border: 1px solid #334155; border-radius: 14px;
+    padding: 1.5rem 1rem; text-align: center; margin-bottom: 0.5rem;
+    box-shadow: 0 0 20px rgba(56,189,248,0.12);
 }
-
-/* Header */
-.header-banner {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 2rem 1.5rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    box-shadow: var(--glow);
-    position: relative;
-    overflow: hidden;
+.hdr h1 {
+    font-size: 1.8rem; font-weight: 700; margin: 0 0 0.3rem 0;
+    background: linear-gradient(135deg, #38bdf8, #22d3ee);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-
-.header-banner::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 30% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 50%);
-    animation: pulse-glow 8s ease-in-out infinite;
+.hdr p { color: #94a3b8; font-size: 0.85rem; margin: 0.2rem 0; }
+.hdr .links { margin-top: 0.7rem; display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; }
+.hdr .links a, .hdr .links span {
+    padding: 0.25rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 500;
+    text-decoration: none; transition: transform 0.15s;
 }
-
-@keyframes pulse-glow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+.hdr .links a:hover { transform: translateY(-1px); }
+.bg { background: rgba(52,211,153,0.12); color: #34d399; border: 1px solid rgba(52,211,153,0.25); }
+.bb { background: rgba(56,189,248,0.12); color: #38bdf8; border: 1px solid rgba(56,189,248,0.25); }
+.bc { background: rgba(34,211,238,0.12); color: #22d3ee; border: 1px solid rgba(34,211,238,0.25); }
+.stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.4rem; margin-bottom: 0.5rem; }
+.sc {
+    background: #1e293b; border: 1px solid #334155; border-radius: 8px;
+    padding: 0.5rem; text-align: center;
 }
-
-.header-title {
-    font-size: 2rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 0 0 0.5rem 0;
-    position: relative;
-}
-
-.header-sub {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin: 0.3rem 0;
-    position: relative;
-}
-
-.header-badges {
-    margin-top: 1rem;
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-}
-
-.badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    padding: 0.35rem 0.75rem;
-    border-radius: 999px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    text-decoration: none !important;
-    transition: all 0.2s ease;
-}
-
-.badge:hover { transform: translateY(-1px); }
-
-.badge-blue {
-    background: rgba(56, 189, 248, 0.15);
-    color: var(--accent-blue);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-}
-
-.badge-green {
-    background: rgba(52, 211, 153, 0.15);
-    color: var(--accent-green);
-    border: 1px solid rgba(52, 211, 153, 0.3);
-}
-
-.badge-cyan {
-    background: rgba(34, 211, 238, 0.15);
-    color: var(--accent-cyan);
-    border: 1px solid rgba(34, 211, 238, 0.3);
-}
-
-/* Stats bar */
-.stats-bar {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.stat-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 0.7rem;
-    text-align: center;
-}
-
-.stat-value {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--accent-blue);
-    font-family: 'JetBrains Mono', monospace;
-}
-
-.stat-label {
-    font-size: 0.7rem;
-    color: var(--text-secondary);
-    margin-top: 0.15rem;
-}
-
-/* Chatbot */
-.chatbot {
-    border-radius: 12px !important;
-    border: 1px solid var(--border-color) !important;
-}
+.sv { font-size: 1rem; font-weight: 700; color: #38bdf8; font-family: 'JetBrains Mono', monospace; }
+.sl { font-size: 0.65rem; color: #94a3b8; margin-top: 0.1rem; }
 """
 
-header_html = f"""
-<div class="header-banner">
-    <div class="header-title">🧬 Rosa — CROM-IA V3.5b</div>
-    <div class="header-sub">Motor de IA Organica Comprimida | 1.5B Params | Qwen2.5 Fine-Tuned (117k amostras PT-BR)</div>
-    <div class="header-sub" style="font-size: 0.8rem; color: #64748b;">Rodando nativamente em CPU — Sem GPU | Compressao Termodinamica DNA O(1)</div>
-    <div class="header-badges">
-        <a href="{GITHUB_URL}" target="_blank" class="badge badge-green">⚙️ GitHub</a>
-        <a href="{HF_MODEL_URL}" target="_blank" class="badge badge-blue">🤗 Modelo GGUF</a>
-        <span class="badge badge-cyan">🧵 {cores} Threads</span>
-        <span class="badge badge-cyan">🔬 {len(dna_entries)} Ponteiros DNA</span>
-    </div>
+HEADER = f"""
+<div class="hdr">
+  <h1>🧬 Rosa — CROM-IA V3.5b</h1>
+  <p>Motor de IA Organica Comprimida | 1.5B Params | Qwen2.5 Fine-Tuned 117k PT-BR</p>
+  <p style="font-size:0.75rem;color:#64748b">CPU-Only | Compressao Termodinamica DNA O(1)</p>
+  <div class="links">
+    <a href="{GITHUB}" target="_blank" class="bg">⚙️ GitHub</a>
+    <a href="{HF_MODEL}" target="_blank" class="bb">🤗 Modelo</a>
+    <span class="bc">🧵 {cores} Threads</span>
+    <span class="bc">🔬 {len(dna_entries)} DNA Ptrs</span>
+  </div>
 </div>
 """
 
-stats_html = f"""
-<div class="stats-bar">
-    <div class="stat-card">
-        <div class="stat-value">1.5B</div>
-        <div class="stat-label">Parametros</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-value">117k</div>
-        <div class="stat-label">Amostras Treino</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-value">Q4_K_M</div>
-        <div class="stat-label">Quantizacao</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-value">{len(dna_entries)}</div>
-        <div class="stat-label">Codebook DNA</div>
-    </div>
+STATS = f"""
+<div class="stats">
+  <div class="sc"><div class="sv">1.5B</div><div class="sl">Parametros</div></div>
+  <div class="sc"><div class="sv">117k</div><div class="sl">Amostras</div></div>
+  <div class="sc"><div class="sv">Q4_K_M</div><div class="sl">Quantizacao</div></div>
+  <div class="sc"><div class="sv">{len(dna_entries)}</div><div class="sl">Codebook DNA</div></div>
 </div>
 """
 
-with gr.Blocks(css=custom_css, title="Rosa - CROM-IA V3.5b") as demo:
-    gr.HTML(header_html)
-    gr.HTML(stats_html)
+FOOTER = """
+<div style="text-align:center;padding:0.4rem;color:#475569;font-size:0.7rem">
+  CROM-IA © 2026<br>
+  <a href="https://github.com/MrJc01/crompressor-ia" target="_blank" style="color:#38bdf8">GitHub</a> ·
+  <a href="https://huggingface.co/CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic" target="_blank" style="color:#38bdf8">HuggingFace</a>
+</div>
+"""
 
-    chatbot = gr.ChatInterface(
+with gr.Blocks(title="Rosa - CROM-IA V3.5b") as demo:
+    gr.HTML(HEADER)
+    gr.HTML(STATS)
+
+    gr.ChatInterface(
         generate,
-        chatbot=gr.Chatbot(height=480),
+        chatbot=gr.Chatbot(height=500),
         additional_inputs=[
-            gr.Slider(minimum=0.0, maximum=1.5, step=0.05, value=0.1,
-                      label="🔥 Temperatura (Criatividade)"),
-            gr.Slider(minimum=1.0, maximum=2.0, step=0.05, value=1.15,
-                      label="🔁 Penalidade de Repeticao"),
-            gr.Slider(minimum=256, maximum=4096, step=256, value=2048,
-                      label="📏 Maximo de Tokens"),
+            gr.Slider(0.0, 1.5, step=0.05, value=0.1, label="🔥 Temperatura"),
+            gr.Slider(1.0, 2.0, step=0.05, value=1.15, label="🔁 Penalidade Repeticao"),
+            gr.Slider(256, 4096, step=256, value=2048, label="📏 Max Tokens"),
         ],
+        additional_inputs_accordion=gr.Accordion("⚙️ Configuracoes Avancadas", open=False),
     )
 
-    gr.HTML("""
-    <div style="text-align:center; padding: 1rem; color: #475569; font-size: 0.8rem;">
-        CROM-IA &copy; 2026 — Arquitetura Sub-Simbolica Termodinamica para Edge Devices<br>
-        <a href="https://github.com/MrJc01/crompressor-ia" target="_blank" style="color: #38bdf8;">GitHub</a> ·
-        <a href="https://huggingface.co/CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic" target="_blank" style="color: #38bdf8;">HuggingFace</a>
-    </div>
-    """)
+    gr.HTML(FOOTER)
 
 if __name__ == "__main__":
-    demo.launch(ssr_mode=False)
+    demo.launch(ssr_mode=False, css=CSS)

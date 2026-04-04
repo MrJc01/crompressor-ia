@@ -8,13 +8,17 @@
   [![Hardware](https://img.shields.io/badge/Hardware-Intel_i5__IvyBridge-blue.svg)](https://en.wikipedia.org/wiki/Ivy_Bridge_(microarchitecture))
   
   <br>
-  <a href="https://huggingface.co/CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic"><img src="https://img.shields.io/badge/🤗_HuggingFace-CROM--IA--V3.5--Organic-ff9d00.svg?style=for-the-badge" alt="HuggingFace Models"></a>
+<br>
+<a href="https://huggingface.co/spaces/CromIA/Rosa-Chat-V3.5"><img src="https://img.shields.io/badge/💬_Testar_Online_Agora!-Painel_Cloud_Gratuito-0e7ce6.svg?style=for-the-badge" alt="HuggingFace Space"></a>
+<a href="https://huggingface.co/CromIA/CROM-IA-V3.5-Qwen-1.5B-Organic"><img src="https://img.shields.io/badge/🤗_HuggingFace-Motor_GGUF-ff9d00.svg?style=for-the-badge" alt="HuggingFace Models"></a>
 </div>
 
 <br>
 
-**📢 ÚLTIMA ATUALIZAÇÃO (ABRIL 2026) — CROM-IA V3.5b (A Fase de Cura):**
-O modelo purificou de forma orgânica a sua capacidade de chat em Português usando 117.860 amostras no Qwen2.5-1.5B. Uma falha sub-simbólica (o *Caso Bicarbonato*) documentada em `docs/CROM_IA_DIARY_V35b.md` expurgou totalmente a alucinação de código da V3.0. Estamos pavimentando o roadmap para a **Arquitetura Multi-Brain O(1) (V4.0)**.
+**📢 ÚLTIMA ATUALIZAÇÃO (ABRIL 2026) — CROM-IA V3.5b (Cloud Edge Deploy):**
+Subimos a interface oficial para o modelo Qwen2.5-1.5B-Organic treinado! Você não precisa baixar nada para testar, basta acessar o link do Painel Online acima.
+
+> **⚠️ Atenção sobre a Compressão DNA:** Embora o painel mostre o `RAG Injector DNA` ativado, a versão V3.5b purificou com sucesso o bug da alucinação (Caso Bicarbonato), mas **ainda não foi treinada para emitir ativamente os ponteiros DNA reais (@@XX)**. A arquitetura web e local já possuí o compressor vivo na camada FUSE/Python esperando o texto do LLM apontar, o que será o foco do treinamento na Arquitetura Multi-Brain O(1) (V4.0).
 
 O **CROM-IA** é uma arquitetura revolucionária que permite a execução de Redes Neurais (LLMs Reais como LLaMA e Qwen) em computadores sem Placa de Vídeo dedicada e com menos de **3GB de memória RAM disponível**.
 
