@@ -47,3 +47,4 @@ crompressor_bin
 .DS_Store
 .vscode/
 pesquisa/poc_llama_cpp_fuse/llama.cpp/
+*.zip
