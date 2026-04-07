@@ -49,7 +49,7 @@ def main():
     parser.add_argument("--amostras", type=int, default=10000, help="Total de amostras (default: 10000)")
     parser.add_argument("--output", type=str, default=None, help="Caminho do arquivo de saída")
     parser.add_argument("--max-entropia", type=float, default=7.0, help="Limiar máximo de entropia Shannon (default: 7.0)")
-    parser.add_argument("--max-chars", type=int, default=300, help="Tamanho máximo instrução+output (default: 300)")
+    parser.add_argument("--max-chars", type=int, default=32768, help="Tamanho máximo instrução+output (default: 32768)")
     args = parser.parse_args()
 
     if args.output is None:

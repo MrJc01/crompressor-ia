@@ -36,11 +36,14 @@ pkill -f "health_guard.sh" 2>/dev/null || true
 fusermount -u "$DIR_BASE/mnt_crom" 2>/dev/null || true
 
 # 4. Iniciar Sub-rotinas do Sistema Distribuído Background
-echo "[2/4] Armando Escudos (Health Guard Daemon)..."
+echo "[2/4] Preparando Solo Semântico (Shared Memory Bridge)..."
+"$VENV_PYTHON" "$DIR_BASE/scripts/setup_mmap_bridge.py"
+
+echo "[3/4] Armando Escudos (Health Guard Daemon)..."
 bash "$DIR_BASE/scripts/health_guard.sh" &
 GUARD_PID=$!
 
-echo "[3/4] Levantando Servidor Frontend (Porta $PORT_UI)..."
+echo "[4/4] Levantando Servidor Frontend (Porta $PORT_UI)..."
 cd "$DIR_BASE"
 python3 -m http.server $PORT_UI --directory visualizador-sre > /dev/null 2>&1 &
 UI_PID=$!
@@ -57,11 +60,11 @@ function teardown() {
 trap teardown SIGINT SIGTERM
 
 echo "=================================================="
-echo " 🟢 TUDO ONLINE: Acesse http://localhost:$PORT_UI"
-echo " 📡 Backend rodando em :$PORT_API"
-echo " Pressione Ctrl+C para derrubar tudo."
+echo " ⌬  CROM-IA v4.3 ONLINE: http://localhost:$PORT_UI"
+echo " 📡 Backend Qwen 3.5 em :$PORT_API"
+echo " Pressione Ctrl+C para encerrar o Salto Cognitivo."
 echo "=================================================="
 
-echo "[4/4] Injetando Kernel de Inferência Python..."
+echo "[FINAL] Injetando Kernel de Inferência Python..."
 cd "$DIR_BASE/visualizador-sre"
 "$VENV_PYTHON" server.py

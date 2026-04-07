@@ -5,9 +5,9 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse
 
 MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "models")
-MODEL_PATH = os.path.join(MODEL_DIR, "tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf")
-STOP_TOKEN = "<" + "|" + "user" + "|" + ">"
-END_TOKEN = "</" + "s>"
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "models", "CROM-IA_v4.3_Qwen3.5-2B.gguf")
+STOP_TOKEN = "<|im_end|>"
+END_TOKEN = "<|im_end|>"
 llm = None
 
 SYSTEM_PROMPT = (
@@ -45,15 +45,17 @@ def load_model():
     print("=" * 60)
 
 def build_prompt(history):
-    sys_tag = "<" + "|system|>"
-    user_tag = "<" + "|user|>"
-    asst_tag = "<" + "|assistant|>"
-    parts = [f"{sys_tag}\n{SYSTEM_PROMPT}{END_TOKEN}"]
+    sys_tag = "<|im_start|>system\n"
+    user_tag = "<|im_start|>user\n"
+    asst_tag = "<|im_start|>assistant\n"
+    im_end = "<|im_end|>\n"
+    
+    parts = [f"{sys_tag}{SYSTEM_PROMPT}{im_end}"]
     for msg in history[-20:]:
         tag = user_tag if msg["role"] == "user" else asst_tag
-        parts.append(f"{tag}\n{msg['content']}{END_TOKEN}")
+        parts.append(f"{tag}{msg['content']}{im_end}")
     parts.append(asst_tag)
-    return "\n".join(parts)
+    return "".join(parts)
 
 class ChatHandler(BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
