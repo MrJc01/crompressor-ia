@@ -1,0 +1,2 @@
+root   ::= line "\n" line "\n" line
+line   ::= [^ \n\r\t]+ (" " [^ \n\r\t]+)*
