@@ -241,7 +241,8 @@ def treinar(model, tokenizer, dataset_path):
     """Treina com SFTTrainer."""
     print("\n[3] Treinando...")
     
-    from trl import SFTTrainer, SFTConfig
+    from trl import SFTTrainer
+    from transformers import TrainingArguments
     from datasets import load_dataset as ld
     
     # Carregar dataset
@@ -251,7 +252,7 @@ def treinar(model, tokenizer, dataset_path):
     print(f"  Train: {len(ds['train'])} | Val: {len(ds['test'])}")
     
     # Configuração de treino
-    training_args = SFTConfig(
+    training_args = TrainingArguments(
         output_dir=CONFIG["output_dir"],
         max_steps=CONFIG["max_steps"],
         per_device_train_batch_size=CONFIG["batch_size"],
@@ -267,15 +268,15 @@ def treinar(model, tokenizer, dataset_path):
         load_best_model_at_end=True,
         metric_for_best_model="eval_loss",
         report_to="none",
-        max_seq_length=CONFIG["max_seq_length"],
     )
     
     trainer = SFTTrainer(
         model=model,
         train_dataset=ds["train"],
         eval_dataset=ds["test"],
-        tokenizer=tokenizer,
+        processing_class=tokenizer,
         args=training_args,
+        max_seq_length=CONFIG["max_seq_length"],
     )
     
     # Treinar
