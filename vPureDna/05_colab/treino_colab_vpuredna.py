@@ -39,14 +39,15 @@ CONFIG = {
     "max_chars_per_sample": 600,
     "val_split": 0.1,
     
-    # Treino
+    # Treino (otimizado para A100 40GB)
     "max_steps": 1000,
-    "batch_size": 4,
-    "gradient_accumulation": 4,
+    "batch_size": 16,
+    "gradient_accumulation": 1,
     "learning_rate": 2e-4,
     "warmup_steps": 50,
-    "max_seq_length": 512,
-    "fp16": True,
+    "max_seq_length": 256,
+    "fp16": False,
+    "bf16": True,
     
     # Output
     "output_dir": "./vPureDna/05_colab/output",
@@ -283,6 +284,7 @@ def treinar(model, tokenizer, dataset_path):
         learning_rate=CONFIG["learning_rate"],
         warmup_steps=CONFIG["warmup_steps"],
         fp16=CONFIG["fp16"],
+        bf16=CONFIG["bf16"],
         logging_steps=CONFIG["logging_steps"],
         save_steps=CONFIG["save_steps"],
         eval_strategy="steps",
