@@ -41,13 +41,14 @@ CONFIG = {
     
     # Treino (otimizado para A100 40GB)
     "max_steps": 1000,
-    "batch_size": 16,
-    "gradient_accumulation": 1,
-    "learning_rate": 2e-4,
+    "batch_size": 8,
+    "gradient_accumulation": 2,
+    "learning_rate": 1e-4,
     "warmup_steps": 50,
     "max_seq_length": 256,
-    "fp16": False,
-    "bf16": True,
+    "fp16": True,
+    "bf16": False,
+    "max_grad_norm": 1.0,
     
     # Output
     "output_dir": "./vPureDna/05_colab/output",
@@ -266,7 +267,12 @@ def treinar(model, tokenizer, dataset_path):
             max_length=max_len,
             padding="max_length",
         )
-        tokenized["labels"] = [ids[:] for ids in tokenized["input_ids"]]
+        # CRUCIAL: mask padding tokens com -100 para NÃO entrar no loss
+        pad_id = tokenizer.pad_token_id
+        labels = []
+        for ids in tokenized["input_ids"]:
+            labels.append([t if t != pad_id else -100 for t in ids])
+        tokenized["labels"] = labels
         return tokenized
     
     print("  Tokenizando dataset...")
@@ -285,6 +291,7 @@ def treinar(model, tokenizer, dataset_path):
         warmup_steps=CONFIG["warmup_steps"],
         fp16=CONFIG["fp16"],
         bf16=CONFIG["bf16"],
+        max_grad_norm=CONFIG["max_grad_norm"],
         logging_steps=CONFIG["logging_steps"],
         save_steps=CONFIG["save_steps"],
         eval_strategy="steps",
@@ -354,13 +361,15 @@ def validar_rapido(model, tokenizer):
         inputs = tokenizer(text, return_tensors="pt").to(model.device)
         
         with torch.no_grad():
-            outputs = model.generate(
-                **inputs,
-                max_new_tokens=100,
-                temperature=0.7,
-                do_sample=True,
-                top_p=0.9,
-            )
+            try:
+                outputs = model.generate(
+                    **inputs,
+                    max_new_tokens=100,
+                    do_sample=False,  # greedy = seguro, sem NaN
+                )
+            except Exception as e:
+                print(f"\n  ⚠️ Erro na geração: {e}")
+                continue
         
         response = tokenizer.decode(outputs[0][inputs.input_ids.shape[-1]:], skip_special_tokens=True)
         tem_esperado = p["esperado"].lower() in response.lower()
