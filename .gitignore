@@ -40,7 +40,8 @@ env/
 *.sqlite
 *.sqlite3
 
-# Binários Compilados
+# Bridges, Memory Maps e Binários Compilados
+*.mmap
 crompressor_bin
 
 # OS & IDE
