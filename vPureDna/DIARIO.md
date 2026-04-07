@@ -3,22 +3,79 @@
 ## Entrada 1 — 07/Abr/2026 (Criação do Laboratório)
 
 ### Contexto
-- O V4.3 Cognitive Leap demonstrou que LoRA sobre Qwen3.5-2B converge (Loss 13.28)
-- Mas o modelo NÃO emite ponteiros DNA (@@XX) espontaneamente
-- O tokenizer BPE herda overhead: "a" vira DNA maior que o texto original
-- Decisão: criar vertente experimental para treinar do zero, sem BPE
+- V4.3 usa LoRA sobre Qwen3.5-2B → modelo NÃO emite ⌬ espontaneamente
+- BPE herda overhead: "a" virava DNA maior que o original
+- Decisão: vertente experimental para modelo que usa ⌬ como atalho inteligente
 
-### Análise da outra IA (insights absorvidos)
-1. **Começar híbrido** — DNA para chunks grandes + tokens tradicionais para curtos
-2. **Codebook hierárquico 1x5** — letras/bigramas → 2-4 bases, palavras/frases → maiores
-3. **Greedy longest-match** — priorizar frases longas no encode
-4. **Vocabulário 16-256** — 4 tokens puros pode ser radical demais, usar bigramas/4-gramas
-5. **Self-distillation** — modelo aprende com próprias predições validadas
+---
 
-### Decisões Pendentes
-- [ ] Chassis do modelo
-- [ ] Tamanho do vocabulário
-- [ ] Corpus de treino
-- [ ] Hardware
+## Entrada 2 — 07/Abr/2026 (⌬ Format Spec + First Test)
 
-### Status: Aguardando decisões fundacionais para iniciar Fase 1
+### Decisão Fundamental: ⌬ é atalho, não substituto
+
+**Regra de ouro**: `⌬ID` só aparece quando é MENOR que o texto original.
+- "oi" fica "oi" (2 chars < ⌬W42 = 4 chars)
+- "inteligência artificial" vira ⌬F186 (25 chars → 5 chars = 5x compressão)
+
+### Hierarquia de Tiers
+- `⌬W` = Palavra longa (≥ 5 chars)
+- `⌬F` = Frase (2+ palavras)
+- `⌬P` = Parágrafo (blocos inteiros)
+
+### Resultados do Primeiro Teste (DNACompressor)
+
+```
+Codebook: codebook_1x5_dinamico_expandido.json
+  ⌬W entries: 1.198 (palavras longas que comprimem)
+  ⌬F entries: 13.512 (frases que comprimem)
+
+Testes:
+  "a"                     → "a"                    (1.0x, mantém) ✅
+  "oi"                    → "oi"                   (1.0x, mantém) ✅
+  "de que para"           → "⌬F76 ⌬W1"            (1.5x) ✅
+  "Olá mundo"             → "⌬F11195"              (2.0x) ✅
+  "IA é o futuro da comp" → "⌬F186 é ⌬F9415 comp" (1.8x) ✅
+  "IA pode resolver..."   → "⌬F2413 ⌬F589..."     (2.8x) ✅ 🔥
+
+  Roundtrip: 100% correto em todos os testes
+```
+
+### Insight
+O modelo NÃO precisa de tokenizer DNA. Ele precisa de tokenizer NORMAL (BPE/char) e
+aprender a emitir ⌬IDs como parte do seu vocabulário natural. É como aprender siglas:
+"ONU" = "Organização das Nações Unidas".
+
+### Próximo Passo
+- Gerar dataset Alpaca-PT com frases substituídas por ⌬IDs
+- Treinar modelo pequeno para ver se aprende o padrão
+- Se o loss converge → vale Colab
+
+---
+
+## Entrada 3 — 07/Abr/2026 (Achado Crítico: ⌬ vs BPE)
+
+### Teste: Como Qwen tokeniza ⌬?
+- `⌬` sozinho = **2 tokens BPE** (fragmentado em bytes UTF-8)
+- `⌬F42` = **5 tokens BPE** (⌬ + F + 4 + 2)
+- `⌬F2413` = **7 tokens BPE**
+- Texto normal equivalente = **3-4 tokens BPE**
+
+### Impacto
+O formato ⌬ com IDs numéricos é **MAIS CARO** em tokens BPE que o texto original
+para frases curtas. Cada dígito custa 1 token BPE.
+
+### Soluções Encontradas
+1. Adicionar `⌬` como `additional_special_token` → vira 1 token ✅
+2. `Δ` (delta grego U+0394) já é 1 token nativo no Qwen ✅
+3. Priorizar ⌬P (parágrafos, 10x savings) sobre ⌬W (palavras, overhead)
+
+### Pivô Estratégico
+O valor do ⌬ NÃO é eficiência BPE para palavras curtas.
+O valor REAL é:
+- **⌬P** para parágrafos inteiros (10x compression)
+- **Multi-Brain** para modulardade de conhecimento
+- **Cognição compressora** como capacidade aprendida
+- **Futuro tokenizer custom** que elimina o overhead BPE
+
+### Status
+Decisão: manter ⌬, adicionar como special token, focar em ⌬F longos + ⌬P.
