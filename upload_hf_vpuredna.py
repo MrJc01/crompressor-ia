@@ -14,7 +14,7 @@ import os
 import sys
 from huggingface_hub import HfApi, login
 
-REPO_ID = "MrJc01/vpuredna-v5-qwen3-1.7b"
+REPO_ID = "CromIA/vpuredna-v5-qwen3-1.7b"
 DIR_BASE = os.path.dirname(os.path.abspath(__file__))
 
 
