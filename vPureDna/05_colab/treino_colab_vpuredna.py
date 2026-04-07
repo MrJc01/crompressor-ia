@@ -238,11 +238,10 @@ def carregar_modelo():
 
 
 def treinar(model, tokenizer, dataset_path):
-    """Treina com SFTTrainer."""
+    """Treina com Trainer padrão (sem dependência TRL)."""
     print("\n[3] Treinando...")
     
-    from trl import SFTTrainer
-    from transformers import TrainingArguments
+    from transformers import Trainer, TrainingArguments, DataCollatorForLanguageModeling
     from datasets import load_dataset as ld
     
     # Carregar dataset
@@ -250,6 +249,30 @@ def treinar(model, tokenizer, dataset_path):
     ds = ds.train_test_split(test_size=CONFIG["val_split"], seed=42)
     
     print(f"  Train: {len(ds['train'])} | Val: {len(ds['test'])}")
+    
+    max_len = CONFIG["max_seq_length"]
+    
+    # Tokenizar dataset com ChatML template
+    def tokenize_fn(examples):
+        texts = []
+        for msgs in examples["messages"]:
+            text = tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=False)
+            texts.append(text)
+        
+        tokenized = tokenizer(
+            texts,
+            truncation=True,
+            max_length=max_len,
+            padding="max_length",
+        )
+        tokenized["labels"] = [ids[:] for ids in tokenized["input_ids"]]
+        return tokenized
+    
+    print("  Tokenizando dataset...")
+    train_ds = ds["train"].map(tokenize_fn, batched=True, remove_columns=ds["train"].column_names)
+    eval_ds = ds["test"].map(tokenize_fn, batched=True, remove_columns=ds["test"].column_names)
+    
+    print(f"  Tokenizado: train={len(train_ds)} | val={len(eval_ds)}")
     
     # Configuração de treino
     training_args = TrainingArguments(
@@ -270,13 +293,14 @@ def treinar(model, tokenizer, dataset_path):
         report_to="none",
     )
     
-    trainer = SFTTrainer(
+    data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
+    
+    trainer = Trainer(
         model=model,
-        train_dataset=ds["train"],
-        eval_dataset=ds["test"],
-        processing_class=tokenizer,
+        train_dataset=train_ds,
+        eval_dataset=eval_ds,
+        data_collator=data_collator,
         args=training_args,
-        max_seq_length=CONFIG["max_seq_length"],
     )
     
     # Treinar
