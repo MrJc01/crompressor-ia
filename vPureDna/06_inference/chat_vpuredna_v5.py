@@ -148,46 +148,88 @@ class VPureDnaChat:
         return prompt
 
     def _call_llama(self, prompt, max_tokens=256):
-        """Chama llama-cli e retorna resposta (one-shot, sem interativo)."""
-        cmd = [
-            LLAMA_CLI,
-            "-m", self.model_path,
+        """Chama llama-cli via PTY para capturar saída do terminal."""
+        import re
+        import tempfile
+        import shlex
+
+        # Construir comando como string para script -c
+        cmd_parts = [
+            shlex.quote(LLAMA_CLI),
+            "-m", shlex.quote(self.model_path),
             "--threads", str(self.threads),
             "-c", str(self.ctx),
             "-n", str(max_tokens),
             "--temp", str(self.temp),
             "--repeat-penalty", str(self.repeat_penalty),
-            "-p", prompt,
-            "--no-display-prompt",
+            "-p", shlex.quote(prompt),
             "--log-disable",
-            "--no-cnv",
+            "--single-turn",
         ]
 
         if self.ngl > 0:
-            cmd.extend(["-ngl", str(self.ngl)])
+            cmd_parts.extend(["-ngl", str(self.ngl)])
+
+        cmd_str = " ".join(cmd_parts)
 
         try:
+            # Usar 'script' para capturar saída TTY
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as tf:
+                outfile = tf.name
+
             result = subprocess.run(
-                cmd,
-                capture_output=True,
-                text=True,
+                ["script", "-qc", cmd_str, outfile],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
                 timeout=300,
             )
-            output = result.stdout.strip()
 
-            # Remover bloco <think>...</think> se presente
-            import re
-            output = re.sub(r'<think>.*?</think>', '', output, flags=re.DOTALL).strip()
+            with open(outfile, 'r', errors='replace') as f:
+                raw = f.read()
 
-            # Limpar artefatos de geração
+            os.unlink(outfile)
+
+            # Extrair resposta: tudo depois do último "assistant"
+            marker = "<|im_start|>assistant"
+            if marker in raw:
+                output = raw.split(marker)[-1]
+            else:
+                output = raw
+
+            # Qwen3: extrair conteúdo de <think>
+            think_match = re.search(r'<think>(.*?)</think>(.*)', output, flags=re.DOTALL)
+            if think_match:
+                after_think = think_match.group(2).strip()
+                inside_think = think_match.group(1).strip()
+                output = after_think if after_think else inside_think
+            else:
+                think_open = re.search(r'<think>(.*)', output, flags=re.DOTALL)
+                if think_open:
+                    output = think_open.group(1).strip()
+
+            # Limpar artefatos
             if "<|im_end|>" in output:
                 output = output.split("<|im_end|>")[0].strip()
             if "<|im_start|>" in output:
                 output = output.split("<|im_start|>")[0].strip()
 
+            # Limpar stats e lixo do llama-cli
+            output = re.sub(r'\[.*?Prompt:.*?\]', '', output).strip()
+            output = re.sub(r'\[.*?Generation:.*?\]', '', output).strip()
+            output = re.sub(r'Exiting\.\.\..*', '', output, flags=re.DOTALL).strip()
+            output = re.sub(r'llama_memory.*', '', output, flags=re.DOTALL).strip()
+            output = re.sub(r'Script .*', '', output, flags=re.DOTALL).strip()
+            # Remover ANSI escape codes
+            output = re.sub(r'\x1b\[[0-9;]*[a-zA-Z]', '', output).strip()
+            output = re.sub(r'\r', '', output).strip()
+
             return output
 
         except subprocess.TimeoutExpired:
+            try:
+                os.unlink(outfile)
+            except Exception:
+                pass
             return "[ERRO: Timeout na geração]"
         except Exception as e:
             return f"[ERRO: {e}]"
